@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Nimish HomeLab</title>
+  <style>
+    :root { --bg:#0b0f14; --fg:#e6eef7; --muted:#99a7b5; --card:#111826; --ok:#22c55e; --warn:#f59e0b; --bad:#ef4444; --link:#7dd3fc; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font: 15px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+      color: var(--fg); background: radial-gradient(1200px 1200px at 80% -10%, #0e2436 0%, var(--bg) 40%), var(--bg);
+      display: grid; place-items: center; padding: 24px;
+    }
+    .wrap { width: 100%; max-width: 760px; }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      backdrop-filter: blur(6px);
+    }
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: 0.3px; }
+    p { margin: 8px 0 0; color: var(--muted); }
+    .grid { display: grid; gap: 14px; margin-top: 22px; }
+    .row { display: flex; align-items: center; justify-content: space-between; background: #0f1623; border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 12px 14px; }
+    .row .left { display: flex; gap: 10px; align-items: center; }
+    .pill { font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .6px; padding: 6px 10px; border-radius: 999px; }
+    .pill.checking { background: #1f2937; color: #e5e7eb; }
+    .pill.ok { background: rgba(34,197,94,.15); color: var(--ok); border: 1px solid rgba(34,197,94,.35); }
+    .pill.bad { background: rgba(239,68,68,.15); color: var(--bad); border: 1px solid rgba(239,68,68,.35); }
+    a.btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      text-decoration: none; color: #0b1220; background: #e6eef7; padding: 10px 14px; border-radius: 12px; font-weight: 600;
+      transition: transform .08s ease;
+    }
+    a.btn:hover { transform: translateY(-1px); }
+    code { background: #0f1623; padding: 2px 6px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.06); }
+    footer { margin-top: 18px; text-align: center; color: var(--muted); font-size: 13px; }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .help { color: var(--muted); font-size: 14px; }
+    .help a { color: var(--link); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <h1>Welcome to Nimish’s HomeLab</h1>
+      <p>Self-hosted services from my lab. When my PC or tunnel is off, dependent services will show as offline.</p>
+
+      <div class="grid">
+        <!-- Plex status row -->
+        <div class="row">
+          <div class="left">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="currentColor" opacity=".5"/>
+              <path d="M10 7l6 5-6 5V7z" fill="currentColor" />
+            </svg>
+            <div>
+              <div style="font-weight:700">Plex</div>
+              <div class="help">Proxy: <code>plex.nimishhomelab.com</code></div>
+            </div>
+          </div>
+          <div class="links">
+            <span id="plex-pill" class="pill checking">Checking…</span>
+            <a class="btn" href="https://plex.nimishhomelab.com" rel="noopener" target="_blank">Open Plex</a>
+          </div>
+        </div>
+
+        <!-- Add more services later by duplicating the block above -->
+
+        <!-- General note -->
+        <div class="row" style="align-items:flex-start">
+          <div class="left">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" opacity=".5"/>
+              <path d="M12 7v6m0 4h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <div style="font-weight:700">Heads-up</div>
+              <p class="help">This page is hosted on Cloudflare Pages (always up). Service links may be offline when the home PC or tunnel is down.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>© <span id="year"></span> Nimish HomeLab</footer>
+    </section>
+  </main>
+
+  <script>
+    // Simple reachability check: try to load Plex's favicon.
+    // If it loads within timeout => "Online". If it errors/times out => "Offline".
+    // Note: This is a heuristic; some setups block cross-origin icon loads.
+    (function checkPlex() {
+      const pill = document.getElementById('plex-pill');
+      const set = (state) => {
+        pill.className = 'pill ' + (state === 'ok' ? 'ok' : state === 'bad' ? 'bad' : 'checking');
+        pill.textContent = state === 'ok' ? 'Online' : state === 'bad' ? 'Offline' : 'Checking…';
+      };
+      set('checking');
+      const img = new Image();
+      const timeoutMs = 5000;
+      const t = setTimeout(() => { img.src = ''; set('bad'); }, timeoutMs);
+      img.onload = () => { clearTimeout(t); set('ok'); };
+      img.onerror = () => { clearTimeout(t); set('bad'); };
+      img.referrerPolicy = 'no-referrer';
+      img.src = 'https://plex.nimishhomelab.com/favicon.ico?cb=' + Date.now();
+      // Re-run every 30s
+      setInterval(checkPlex, 30000);
+    })();
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
