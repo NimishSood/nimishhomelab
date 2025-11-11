@@ -10,8 +10,9 @@
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body {
-      margin: 0; font: 15px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
-      color: var(--fg); background: radial-gradient(1200px 1200px at 80% -10%, #0e2436 0%, var(--bg) 40%), var(--bg);
+      margin: 0; font: 15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial;
+      color: var(--fg);
+      background: radial-gradient(1200px 1200px at 80% -10%, #0e2436 0%, var(--bg) 40%), var(--bg);
       display: grid; place-items: center; padding: 24px;
     }
     .wrap { width: 100%; max-width: 760px; }
@@ -47,10 +48,10 @@
   <main class="wrap">
     <section class="card">
       <h1>Welcome to Nimish’s HomeLab</h1>
-      <p>Self-hosted services from my lab. When my PC or tunnel is off, dependent services will show as offline.</p>
+      <p>Self-hosted services from my lab. When the PC or tunnel is down, services will show as offline.</p>
 
       <div class="grid">
-        <!-- Plex status row -->
+        <!-- Plex -->
         <div class="row">
           <div class="left">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -68,9 +69,26 @@
           </div>
         </div>
 
-        <!-- Add more services later by duplicating the block above -->
+        <!-- Immich -->
+        <div class="row">
+          <div class="left">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" opacity=".5"/>
+              <path d="M7 13c2.5-4 7.5-4 10 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="12" cy="11" r="2.2" fill="currentColor"/>
+            </svg>
+            <div>
+              <div style="font-weight:700">Immich</div>
+              <div class="help">Proxy: <code>immich.nimishhomelab.com</code></div>
+            </div>
+          </div>
+          <div class="links">
+            <span id="immich-pill" class="pill checking">Checking…</span>
+            <a class="btn" href="https://immich.nimishhomelab.com" rel="noopener" target="_blank">Open Immich</a>
+          </div>
+        </div>
 
-        <!-- General note -->
+        <!-- Heads-up -->
         <div class="row" style="align-items:flex-start">
           <div class="left">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -79,7 +97,7 @@
             </svg>
             <div>
               <div style="font-weight:700">Heads-up</div>
-              <p class="help">This page is hosted on Cloudflare Pages (always up). Service links may be offline when the home PC or tunnel is down.</p>
+              <p class="help">This page is served from Cloudflare Pages (always up). Service links may be offline when the PC or tunnel is down.</p>
             </div>
           </div>
         </div>
@@ -90,26 +108,30 @@
   </main>
 
   <script>
-    // Simple reachability check: try to load Plex's favicon.
-    // If it loads within timeout => "Online". If it errors/times out => "Offline".
-    // Note: This is a heuristic; some setups block cross-origin icon loads.
-    (function checkPlex() {
-      const pill = document.getElementById('plex-pill');
+    // Generic favicon-based reachability probe (works cross-origin without CORS).
+    function probeService(faviconUrl, pillId, timeoutMs = 5000) {
+      const pill = document.getElementById(pillId);
       const set = (state) => {
         pill.className = 'pill ' + (state === 'ok' ? 'ok' : state === 'bad' ? 'bad' : 'checking');
         pill.textContent = state === 'ok' ? 'Online' : state === 'bad' ? 'Offline' : 'Checking…';
       };
       set('checking');
       const img = new Image();
-      const timeoutMs = 5000;
+      img.referrerPolicy = 'no-referrer';
       const t = setTimeout(() => { img.src = ''; set('bad'); }, timeoutMs);
       img.onload = () => { clearTimeout(t); set('ok'); };
       img.onerror = () => { clearTimeout(t); set('bad'); };
-      img.referrerPolicy = 'no-referrer';
-      img.src = 'https://plex.nimishhomelab.com/favicon.ico?cb=' + Date.now();
-      // Re-run every 30s
-      setInterval(checkPlex, 30000);
-    })();
+      img.src = faviconUrl + (faviconUrl.includes('?') ? '&' : '?') + 'cb=' + Date.now();
+    }
+
+    function scheduleProbes() {
+      probeService('https://plex.nimishhomelab.com/favicon.ico', 'plex-pill');
+      probeService('https://immich.nimishhomelab.com/favicon.ico', 'immich-pill');
+    }
+
+    // Initial run + refresh every 30s
+    scheduleProbes();
+    setInterval(scheduleProbes, 30000);
 
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
