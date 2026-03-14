@@ -641,6 +641,7 @@
         <a class="nav-link" href="#about">About</a>
         <a class="nav-link" href="#projects">Projects</a>
         <a class="nav-link" href="#lab">Homelab</a>
+        <a class="nav-link" href="#ai">AI / ML</a>
         <a class="nav-link" href="#contact">Contact</a>
       </nav>
     </header>
@@ -650,14 +651,16 @@
         <div class="eyebrow">Security-focused CS student · UPEI Co-op · Graduating 2027</div>
         <h1>Nimish Sood</h1>
         <p class="hero-tagline">
-          Targeting cybersecurity roles. I build hands-on: a Wazuh-based SIEM homelab, security-focused data analysis
-          pipelines, and shipped software — including a fully deployed app built and launched in under 24 hours.
+          Targeting cybersecurity roles, with a serious second track in AI/ML. I build hands-on: a Wazuh-based SIEM
+          homelab, local LLM inference on an RTX 5090, security-focused data analysis pipelines, and shipped
+          software — including a fully deployed app built and launched in under 24 hours.
         </p>
         <p class="hero-copy">
-          My homelab runs on Ubuntu Server VMs behind Cloudflare Tunnels, currently hosting a Wazuh SIEM stack
-          alongside self-managed services. On the software side I work in Python, Next.js, and TypeScript — most
-          recently shipping CropGuard, a real-time crop disease alert system with geofenced regional propagation,
-          Firebase-backed auth, and an interactive Leaflet map, deployed to production on Vercel.
+          My homelab runs Ubuntu Server VMs behind Cloudflare Tunnels, hosting a Wazuh SIEM stack and local LLM
+          inference via Ollama. I am studying LoRA/QLoRA fine-tuning methodology and fine-tuning vs RAG
+          tradeoffs — deliberately building the mental model before running training. On the software side I work in
+          Python, Next.js, and TypeScript — most recently shipping CropGuard, a real-time crop disease alert system
+          with geofenced regional propagation, Firebase auth, and an interactive Leaflet map, deployed to Vercel.
         </p>
         <div class="hero-actions">
           <a class="button button-primary" href="#projects">View projects</a>
@@ -669,6 +672,8 @@
           <span class="chip">Cybersecurity</span>
           <span class="chip">SIEM / Wazuh</span>
           <span class="chip">Homelab infrastructure</span>
+          <span class="chip">Local LLMs · Ollama</span>
+          <span class="chip">Fine-tuning · RAG · LoRA</span>
           <span class="chip">Security data analysis</span>
           <span class="chip">Python · Next.js · TypeScript</span>
           <span class="chip">Cloudflare · Linux</span>
@@ -689,7 +694,7 @@
             </div>
             <div class="meta-row">
               <span class="meta-label">Target roles</span>
-              <span class="meta-value">Cybersecurity (primary) — SOC analyst, security engineering, detection &amp; response. AI/ML security as secondary interest.</span>
+              <span class="meta-value">Cybersecurity (primary) — SOC analyst, security engineering, detection &amp; response. AI/ML engineering as strong secondary — particularly LLM fine-tuning, inference infrastructure, and AI security.</span>
             </div>
             <div class="meta-row">
               <span class="meta-label">Contact</span>
@@ -697,7 +702,7 @@
             </div>
             <div class="meta-row">
               <span class="meta-label">Lab stack</span>
-              <span class="meta-value">Ubuntu Server · VMware Workstation · Wazuh · Cloudflare Tunnel · Plex · Immich</span>
+              <span class="meta-value">Ubuntu Server · VMware · Wazuh · Cloudflare Tunnel · Ollama (RTX 5090) · Plex · Immich</span>
             </div>
           </div>
         </aside>
@@ -710,12 +715,16 @@
               <p>Adding Graylog to the event pipeline and building out alert rules and detection practice workflows.</p>
             </article>
             <article class="focus-item">
-              <h3>Security-oriented ML and data analysis</h3>
-              <p>Working through malicious URL detection and network traffic classification using real cybersecurity datasets.</p>
+              <h3>Local LLM inference and fine-tuning</h3>
+              <p>Running Llama 3.1 on Ollama locally (RTX 5090 + 7800X3D). Studying LoRA/QLoRA fine-tuning methodology and fine-tuning vs RAG tradeoffs before attempting training runs — deliberately building the mental model first.</p>
+            </article>
+            <article class="focus-item">
+              <h3>Security-oriented ML datasets</h3>
+              <p>Working through malicious URL detection and CIC-IDS-2017 network traffic classification — connecting data analysis to the security track.</p>
             </article>
             <article class="focus-item">
               <h3>Co-op placement preparation</h3>
-              <p>Building toward a security or infrastructure-adjacent co-op role for 2025–2026.</p>
+              <p>Building toward a security or AI/ML engineering  role for 2026–2027.</p>
             </article>
           </div>
         </aside>
@@ -759,10 +768,11 @@
                 </p>
               </article>
               <article class="detail-card">
-                <h3>AI / ML as a secondary interest</h3>
+                <h3>LLMs and AI/ML as a serious second track</h3>
                 <p>
-                  Security-adjacent ML problems — malware classification, anomaly detection, URL analysis — are where
-                  I apply data and modelling skills in a way that connects back to the security track.
+                  Running Llama 3.1 locally on Ollama (RTX 5090), studying LoRA/QLoRA fine-tuning, and learning
+                  when fine-tuning vs RAG is the right tool. Security-adjacent problems — malware classification,
+                  anomaly detection, URL analysis — are where both tracks converge.
                 </p>
               </article>
             </div>
@@ -886,6 +896,47 @@
               <article class="detail-card">
                 <h3>Self-hosted services</h3>
                 <p>Plex and Immich run as long-lived services on the lab — demonstrating uptime management, reverse proxy config, and tunnel-connected delivery.</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="ai" class="section-card panel">
+            <div class="section-heading">
+              <div class="eyebrow">AI / Machine Learning</div>
+              <h2>LLMs, fine-tuning, and applied ML</h2>
+              <p>
+                A deliberate second track alongside security. I run local inference, study training methodology
+                before touching a training run, and focus AI/ML work on problems that connect back to security —
+                classification, anomaly detection, and malicious pattern recognition.
+              </p>
+            </div>
+            <div class="focus-list">
+              <article class="focus-item">
+                <h3>Local LLM inference — Ollama on RTX 5090</h3>
+                <p>
+                  Running Llama 3.1 8B locally on an AMD 7800X3D + RTX 5090 workstation via Ollama. Observing
+                  GPU compute utilisation vs VRAM usage at the hardware level (~90% compute load on 8B generation
+                  while VRAM stays relatively free). Next: 27B/30B model runs, quantization level comparisons,
+                  and multi-model pipeline experiments.
+                </p>
+              </article>
+              <article class="focus-item">
+                <h3>Fine-tuning methodology — LoRA / QLoRA</h3>
+                <p>
+                  Studying fine-tuning before running it: when fine-tuning is justified vs when RAG or
+                  guardrails are the better tool, how training distribution shapes token probability rather than
+                  adding knowledge, and why evaluation criteria must be defined before training starts. Building
+                  the mental model first is deliberate — it avoids building something that looks correct but
+                  behaves incorrectly outside the training distribution.
+                </p>
+              </article>
+              <article class="focus-item">
+                <h3>Security-adjacent ML datasets</h3>
+                <p>
+                  Malicious URL Detection (651k labeled URLs) and CIC-IDS-2017 network traffic classification —
+                  applying data analysis and ML approaches to real cybersecurity datasets, directly bridging the
+                  AI and security tracks.
+                </p>
               </article>
             </div>
           </section>
