@@ -2,139 +2,1010 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="robots" content="noindex,nofollow" />
-  <title>Nimish HomeLab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Nimish Sood builds across homelab infrastructure, security systems, data analysis, machine learning experiments, hackathon projects, and practical software development."
+  />
+  <meta property="og:title" content="Nimish Sood | Infrastructure, Data, Security, and Technical Projects" />
+  <meta
+    property="og:description"
+    content="Homelab infrastructure, SIEM experimentation, data analysis, ML experiments, hackathon builds, and practical software projects."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nimishhomelab.com/" />
+  <meta name="theme-color" content="#0a1018" />
+  <meta name="robots" content="index,follow" />
+  <title>Nimish Sood | Infrastructure, Data, Security, and Technical Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
-    :root { --bg:#0b0f14; --fg:#e6eef7; --muted:#99a7b5; --card:#111826; --ok:#22c55e; --warn:#f59e0b; --bad:#ef4444; --link:#7dd3fc; }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
+    :root {
+      --bg: #0a1018;
+      --bg-elevated: rgba(14, 20, 31, 0.92);
+      --bg-soft: rgba(18, 27, 40, 0.8);
+      --panel: rgba(11, 17, 27, 0.88);
+      --line: rgba(120, 149, 179, 0.22);
+      --line-strong: rgba(123, 202, 181, 0.34);
+      --text: #edf3fb;
+      --muted: #9eadbf;
+      --accent: #7bcab5;
+      --accent-strong: #a7f3d0;
+      --accent-warm: #f1c27d;
+      --shadow: 0 28px 64px rgba(0, 0, 0, 0.42);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 16px;
+      --content-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      margin: 0; font: 15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial;
-      color: var(--fg);
-      background: radial-gradient(1200px 1200px at 80% -10%, #0e2436 0%, var(--bg) 40%), var(--bg);
-      display: grid; place-items: center; padding: 24px;
+      margin: 0;
+      min-height: 100vh;
+      font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(123, 202, 181, 0.12), transparent 28%),
+        radial-gradient(circle at 85% 10%, rgba(52, 211, 153, 0.14), transparent 20%),
+        linear-gradient(180deg, #091019 0%, #060b12 52%, #05090f 100%);
+      color-scheme: dark;
     }
-    .wrap { width: 100%; max-width: 760px; }
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px; padding: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-      backdrop-filter: blur(6px);
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(123, 202, 181, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(123, 202, 181, 0.045) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent 88%);
+      pointer-events: none;
+      opacity: 0.32;
     }
-    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: 0.3px; }
-    p { margin: 8px 0 0; color: var(--muted); }
-    .grid { display: grid; gap: 14px; margin-top: 22px; }
-    .row { display: flex; align-items: center; justify-content: space-between; background: #0f1623; border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 12px 14px; }
-    .row .left { display: flex; gap: 10px; align-items: center; }
-    .pill { font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .6px; padding: 6px 10px; border-radius: 999px; }
-    .pill.checking { background: #1f2937; color: #e5e7eb; }
-    .pill.ok { background: rgba(34,197,94,.15); color: var(--ok); border: 1px solid rgba(34,197,94,.35); }
-    .pill.bad { background: rgba(239,68,68,.15); color: var(--bad); border: 1px solid rgba(239,68,68,.35); }
-    a.btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      text-decoration: none; color: #0b1220; background: #e6eef7; padding: 10px 14px; border-radius: 12px; font-weight: 600;
-      transition: transform .08s ease;
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    a.btn:hover { transform: translateY(-1px); }
-    code { background: #0f1623; padding: 2px 6px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.06); }
-    footer { margin-top: 18px; text-align: center; color: var(--muted); font-size: 13px; }
-    .links { display: flex; flex-wrap: wrap; gap: 10px; }
-    .help { color: var(--muted); font-size: 14px; }
-    .help a { color: var(--link); text-decoration: none; }
+
+    a:focus-visible {
+      outline: 2px solid rgba(167, 243, 208, 0.72);
+      outline-offset: 3px;
+    }
+
+    .page-shell {
+      width: min(calc(100% - 40px), var(--content-width));
+      margin: 0 auto;
+      padding: 28px 0 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0 34px;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .brand-kicker,
+    .eyebrow,
+    .chip,
+    .meta,
+    .footer-note,
+    .nav-link {
+      font-family: "IBM Plex Mono", "Consolas", monospace;
+    }
+
+    .brand-kicker,
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+    }
+
+    .brand-title {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      transition: color 0.18s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      color: var(--accent-strong);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.95fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-main {
+      padding: 42px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top right, rgba(123, 202, 181, 0.12), transparent 34%),
+        linear-gradient(160deg, rgba(13, 21, 32, 0.98), rgba(9, 15, 23, 0.94));
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: auto -90px -120px auto;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(123, 202, 181, 0.18), transparent 68%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: rgba(123, 202, 181, 0.45);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 11ch;
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    .hero-tagline {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #d8e6f5;
+      max-width: 58ch;
+    }
+
+    .hero-copy {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 62ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        background-color 0.18s ease,
+        color 0.18s ease;
+    }
+
+    .button:hover,
+    .button:focus-visible,
+    .project-card:hover,
+    .project-card:focus-within,
+    .detail-card:hover,
+    .link-card:hover,
+    .endpoint-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: #04110f;
+      background: var(--accent);
+      box-shadow: 0 14px 30px rgba(123, 202, 181, 0.16);
+    }
+
+    .button-primary:hover,
+    .button-primary:focus-visible {
+      background: var(--accent-strong);
+    }
+
+    .button-secondary {
+      border-color: rgba(167, 243, 208, 0.22);
+      color: var(--text);
+      background: rgba(8, 13, 22, 0.62);
+    }
+
+    .button-secondary:hover,
+    .button-secondary:focus-visible {
+      border-color: rgba(167, 243, 208, 0.42);
+      background: rgba(11, 18, 29, 0.95);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(123, 202, 181, 0.2);
+      background: rgba(9, 15, 25, 0.72);
+      color: #b8c7d8;
+      font-size: 0.76rem;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-aside {
+      display: grid;
+      gap: 18px;
+    }
+
+    .status-panel,
+    .signal-panel {
+      padding: 28px;
+      background: linear-gradient(180deg, rgba(10, 16, 26, 0.95), rgba(8, 13, 22, 0.9));
+    }
+
+    .panel-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .panel-copy {
+      margin-top: 10px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.96rem;
+    }
+
+    .meta-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(158, 173, 191, 0.12);
+    }
+
+    .meta-label,
+    .meta-value {
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
+    .meta-label {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .meta-value {
+      color: var(--text);
+      text-align: right;
+      max-width: 28ch;
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .signal-item {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: rgba(14, 23, 36, 0.9);
+      border: 1px solid rgba(123, 202, 181, 0.14);
+    }
+
+    .signal-item h3 {
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+    }
+
+    .signal-item p {
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.65;
+    }
+
+    main {
+      display: grid;
+      gap: 22px;
+      margin-top: 22px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 22px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 22px;
+    }
+
+    .section-card {
+      padding: 32px;
+      background: linear-gradient(180deg, rgba(12, 19, 30, 0.95), rgba(9, 14, 23, 0.92));
+    }
+
+    .section-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .section-heading h2 {
+      font-size: 1.55rem;
+      letter-spacing: -0.03em;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 62ch;
+      line-height: 1.75;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .detail-card {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      background: rgba(11, 18, 29, 0.92);
+      border: 1px solid rgba(158, 173, 191, 0.12);
+      transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        background-color 0.18s ease;
+    }
+
+    .detail-card:hover {
+      border-color: rgba(123, 202, 181, 0.28);
+      background: rgba(13, 21, 33, 0.98);
+    }
+
+    .detail-card h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .detail-card p,
+    .detail-card li,
+    .project-card p,
+    .link-card p,
+    .endpoint-card p {
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .project-lead {
+      margin-bottom: 18px;
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line-strong);
+      background:
+        radial-gradient(circle at top right, rgba(123, 202, 181, 0.14), transparent 34%),
+        rgba(10, 17, 27, 0.96);
+    }
+
+    .project-lead h3 {
+      font-size: 1.22rem;
+      margin-bottom: 10px;
+    }
+
+    .project-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .project-card,
+    .link-card,
+    .endpoint-card {
+      display: block;
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      background: rgba(11, 18, 29, 0.92);
+      border: 1px solid rgba(158, 173, 191, 0.12);
+      transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        background-color 0.18s ease;
+    }
+
+    .project-card:hover,
+    .project-card:focus-visible,
+    .link-card:hover,
+    .link-card:focus-visible,
+    .endpoint-card:hover,
+    .endpoint-card:focus-visible {
+      border-color: rgba(123, 202, 181, 0.32);
+      background: rgba(13, 21, 33, 0.98);
+    }
+
+    .meta {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--accent);
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .project-card h3,
+    .link-card h3,
+    .endpoint-card h3 {
+      font-size: 1.02rem;
+      margin-bottom: 8px;
+    }
+
+    .project-footer,
+    .link-footer,
+    .endpoint-footer {
+      margin-top: 16px;
+      color: #dce9f6;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .focus-item {
+      padding: 18px 20px;
+      border-left: 2px solid rgba(123, 202, 181, 0.35);
+      background: rgba(11, 18, 29, 0.78);
+      border-radius: 0 16px 16px 0;
+    }
+
+    .focus-item h3 {
+      font-size: 0.98rem;
+      margin-bottom: 6px;
+    }
+
+    .focus-item p {
+      color: var(--muted);
+      line-height: 1.68;
+    }
+
+    .link-grid,
+    .endpoint-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      font-size: 0.77rem;
+      color: rgba(158, 173, 191, 0.84);
+      letter-spacing: 0.03em;
+    }
+
+    footer {
+      margin-top: 18px;
+      padding-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      border-top: 1px solid rgba(158, 173, 191, 0.12);
+    }
+
+    @media (max-width: 1040px) {
+      .hero,
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page-shell {
+        width: min(calc(100% - 28px), var(--content-width));
+        padding-top: 18px;
+        padding-bottom: 52px;
+      }
+
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 24px;
+      }
+
+      .hero-main,
+      .status-panel,
+      .signal-panel,
+      .section-card {
+        padding: 24px;
+      }
+
+      .detail-grid,
+      .signal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: clamp(2.4rem, 15vw, 4rem);
+      }
+
+      .hero-tagline,
+      .hero-copy,
+      .section-heading p {
+        font-size: 0.96rem;
+      }
+
+      .meta-row {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .meta-value {
+        text-align: left;
+        max-width: none;
+      }
+    }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="card">
-      <h1>Welcome to Nimish’s HomeLab</h1>
-      <p>Self-hosted services from my lab. When the PC or tunnel is down, services will show as offline.</p>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand">
+        <span class="brand-kicker">nimishhomelab.com</span>
+        <span class="brand-title">Nimish Sood / Systems, Data, Security, and Project Work</span>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#infrastructure">Infrastructure</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#focus">Current Focus</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+    </header>
 
-      <div class="grid">
-        <!-- Plex -->
-        <div class="row">
-          <div class="left">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="currentColor" opacity=".5"/>
-              <path d="M10 7l6 5-6 5V7z" fill="currentColor" />
-            </svg>
-            <div>
-              <div style="font-weight:700">Plex</div>
-              <div class="help">Proxy: <code>plex.nimishhomelab.com</code></div>
+    <section class="hero">
+      <article class="hero-main panel">
+        <div class="eyebrow">Systems-oriented technical portfolio</div>
+        <h1>Nimish Sood</h1>
+        <p class="hero-tagline">
+          Computer Science student, IT support analyst, and technical builder working across infrastructure,
+          cybersecurity, data analysis, machine learning experimentation, hackathons, and software projects.
+        </p>
+        <p class="hero-copy">
+          My work is anchored by homelab systems and security monitoring, but it extends into data-driven analysis,
+          applied ML experimentation, collaborative hackathon builds, and software projects that turn ideas into
+          something real and testable.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">View featured projects</a>
+          <a class="button button-secondary" href="https://github.com/NimishSood" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="button button-secondary" href="https://www.linkedin.com/in/nimishsood/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+        <div class="hero-meta" aria-label="Focus areas">
+          <span class="chip">Homelab infrastructure</span>
+          <span class="chip">Cybersecurity + SIEM</span>
+          <span class="chip">Data analysis + visualization</span>
+          <span class="chip">Machine learning experimentation</span>
+          <span class="chip">Hackathon builds</span>
+          <span class="chip">Software development</span>
+        </div>
+      </article>
+
+      <div class="hero-aside">
+        <aside class="status-panel panel">
+          <h2 class="panel-title">Technical profile</h2>
+          <p class="panel-copy">
+            Building toward systems-focused roles that value infrastructure depth, analytical thinking, and hands-on
+            project execution across multiple technical domains.
+          </p>
+          <div class="meta-list">
+            <div class="meta-row">
+              <span class="meta-label">Project mix</span>
+              <span class="meta-value">Infrastructure, security systems, data work, ML experimentation, and software builds</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Environment</span>
+              <span class="meta-value">Cloudflare-backed site, tunnel-connected services, self-hosted lab systems, and GitHub-published projects</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Working style</span>
+              <span class="meta-value">Hands-on implementation, README-driven documentation, iteration, and practical problem solving</span>
             </div>
           </div>
-          <div class="links">
-            <span id="plex-pill" class="pill checking">Checking…</span>
-            <a class="btn" href="https://plex.nimishhomelab.com" rel="noopener" target="_blank">Open Plex</a>
+        </aside>
+
+        <aside class="signal-panel panel">
+          <h2 class="panel-title">Work areas</h2>
+          <div class="signal-grid">
+            <div class="signal-item">
+              <h3>Infrastructure</h3>
+              <p>Homelab systems, service exposure, cloud-connected access paths, and operational reliability work.</p>
+            </div>
+            <div class="signal-item">
+              <h3>Security</h3>
+              <p>SIEM experimentation, monitoring pipelines, and security-focused analysis of systems and data.</p>
+            </div>
+            <div class="signal-item">
+              <h3>Data + ML</h3>
+              <p>Exploratory analysis, visualization, and machine learning experiments built around real project datasets.</p>
+            </div>
+            <div class="signal-item">
+              <h3>Build + collaborate</h3>
+              <p>Hackathon delivery, app development, and shipping technical work that can be reviewed in public.</p>
+            </div>
           </div>
+        </aside>
+      </div>
+    </section>
+
+    <main>
+      <div class="content-grid">
+        <div class="stack">
+          <section id="about" class="section-card panel">
+            <div class="section-heading">
+              <div class="eyebrow">About</div>
+              <h2>Technical identity</h2>
+              <p>
+                I am building my career around technical breadth anchored by real implementation. The through-line is
+                systems thinking: whether I am working on infrastructure, security data, machine learning experiments,
+                or hackathon apps, I want to understand how the pieces fit together and how to turn them into working
+                projects.
+              </p>
+            </div>
+            <div class="detail-grid">
+              <article class="detail-card">
+                <h3>Infrastructure first</h3>
+                <p>
+                  The homelab is where I operate services, work through networking and access patterns, and build a
+                  stronger base in systems administration and reliability.
+                </p>
+              </article>
+              <article class="detail-card">
+                <h3>Security as one track</h3>
+                <p>
+                  SIEM and monitoring projects are important to my portfolio, but they sit alongside broader project
+                  work in data analysis, software, and experimentation.
+                </p>
+              </article>
+              <article class="detail-card">
+                <h3>Data-driven curiosity</h3>
+                <p>
+                  I like analytical projects that start with raw data and move toward understanding, visualization, or
+                  a clearer technical story about what the dataset is showing.
+                </p>
+              </article>
+              <article class="detail-card">
+                <h3>Build in public</h3>
+                <p>
+                  I use GitHub to publish the work, document what the project is actually doing, and show progression
+                  through real implementations rather than abstract claims.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section id="projects" class="section-card panel">
+            <div class="section-heading">
+              <div class="eyebrow">Projects</div>
+              <h2>Featured work</h2>
+              <p>
+                These projects show the range of work I am doing across infrastructure, security systems, data
+                analysis, and collaborative builds. Descriptions here are based on the repository READMEs.
+              </p>
+            </div>
+
+            <div class="project-lead">
+              <span class="meta">Featured project</span>
+              <h3>SIEM Homelab / Wazuh Stack</h3>
+              <p>
+                A hands-on SIEM homelab built around the Wazuh stack on Ubuntu Server VMs in VMware Workstation. The
+                README documents the current staged build, including a working Wazuh Indexer and separate Dashboard,
+                with Graylog planned for the broader event pipeline.
+              </p>
+              <div class="hero-actions">
+                <a
+                  class="button button-primary"
+                  href="https://github.com/NimishSood/siem-homelab-wazuh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open project repo
+                </a>
+              </div>
+            </div>
+
+            <div class="project-grid">
+              <a
+                class="project-card"
+                href="https://github.com/NimishSood/siem-homelab-wazuh"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="meta">Infrastructure + security</span>
+                <h3>SIEM Homelab / Wazuh Stack</h3>
+                <p>
+                  Documents a Wazuh-based SIEM homelab running on Ubuntu Server VMs in VMware Workstation, with the
+                  current build covering the Indexer and Dashboard stages of the stack.
+                </p>
+                <div class="project-footer">View GitHub repository</div>
+              </a>
+
+              <a
+                class="project-card"
+                href="https://github.com/green-bits-nimish-adi/CropGuard"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="meta">Hackathon / software</span>
+                <h3>CropGuard</h3>
+                <p>
+                  Built for the UPEI SMCS Hackathon, CropGuard is a geographically-aware crop disease alert system for
+                  PEI that turns isolated reports into coordinated regional response. The README lists Next.js 15,
+                  TypeScript, Tailwind CSS, ShadCN UI, Firebase, and Leaflet-based mapping in the implementation.
+                </p>
+                <div class="project-footer">Hackathon project / 5th Prize</div>
+              </a>
+
+              <a
+                class="project-card"
+                href="https://github.com/NimishSood/malicious-url-detection"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="meta">Data analysis</span>
+                <h3>Malicious URL Detection</h3>
+                <p>
+                  An end-to-end exploratory analysis of the Kaggle Malicious URLs dataset (`malicious_phish.csv`) with
+                  651,191 labeled URLs. The README centers the work on reproducible loading, cleaning, class-balance
+                  analysis, lexical URL feature exploration, and statistical reasoning.
+                </p>
+                <div class="project-footer">View GitHub repository</div>
+              </a>
+
+              <a
+                class="project-card"
+                href="https://github.com/NimishSood/cyber-log-analysis"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="meta">Security data analysis</span>
+                <h3>Cyber Log Analysis</h3>
+                <p>
+                  Explores the CIC-IDS-2017 flow-based network traffic dataset from the Canadian Institute for
+                  Cybersecurity. The project focuses on data acquisition, dataset structure, label inspection, feature
+                  distributions, class imbalance, and reproducible analysis workflows.
+                </p>
+                <div class="project-footer">View GitHub repository</div>
+              </a>
+            </div>
+          </section>
         </div>
 
-        <!-- Immich -->
-        <div class="row">
-          <div class="left">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" opacity=".5"/>
-              <path d="M7 13c2.5-4 7.5-4 10 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-              <circle cx="12" cy="11" r="2.2" fill="currentColor"/>
-            </svg>
-            <div>
-              <div style="font-weight:700">Immich</div>
-              <div class="help">Proxy: <code>immich.nimishhomelab.com</code></div>
+        <div class="stack">
+          <section id="infrastructure" class="section-card panel">
+            <div class="section-heading">
+              <div class="eyebrow">Infrastructure</div>
+              <h2>Infrastructure and homelab work</h2>
+              <p>
+                Infrastructure is still a core thread of the site. The lab is where I combine self-hosting, service
+                delivery, security visibility, and cloud-connected access into one practical environment.
+              </p>
             </div>
-          </div>
-          <div class="links">
-            <span id="immich-pill" class="pill checking">Checking…</span>
-            <a class="btn" href="https://immich.nimishhomelab.com" rel="noopener" target="_blank">Open Immich</a>
-          </div>
-        </div>
+            <div class="detail-grid">
+              <article class="detail-card">
+                <h3>Service hosting</h3>
+                <p>
+                  Running self-hosted applications and internal services while working through exposure, uptime, and
+                  secure external access.
+                </p>
+              </article>
+              <article class="detail-card">
+                <h3>Networked systems</h3>
+                <p>
+                  Treating the lab as a connected environment where routing, DNS, reverse paths, and segmentation
+                  choices matter.
+                </p>
+              </article>
+              <article class="detail-card">
+                <h3>Security telemetry</h3>
+                <p>
+                  Building toward richer observability with endpoint monitoring, central visibility, and better context
+                  around system events.
+                </p>
+              </article>
+              <article class="detail-card">
+                <h3>Cloud-connected edge</h3>
+                <p>
+                  Using Cloudflare-backed delivery and tunnel-connected services as part of a practical hybrid access
+                  model for the lab.
+                </p>
+              </article>
+            </div>
+          </section>
 
-        <!-- Heads-up -->
-        <div class="row" style="align-items:flex-start">
-          <div class="left">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" opacity=".5"/>
-              <path d="M12 7v6m0 4h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-            <div>
-              <div style="font-weight:700">Heads-up</div>
-              <p class="help">This page is served from Cloudflare Pages (always up). Service links may be offline when the PC or tunnel is down.</p>
+          <section id="focus" class="section-card panel">
+            <div class="section-heading">
+              <div class="eyebrow">Current focus</div>
+              <h2>What I am working on now</h2>
+              <p>
+                The goal is visible momentum across infrastructure, security systems, data work, and projects that show
+                range as well as depth.
+              </p>
             </div>
-          </div>
+            <div class="focus-list">
+              <article class="focus-item">
+                <h3>SIEM implementation and refinement</h3>
+                <p>Expanding the Wazuh-based homelab into a more useful environment for alert review and detection practice.</p>
+              </article>
+              <article class="focus-item">
+                <h3>Data analysis and visualization</h3>
+                <p>Using exploratory workflows to understand technical datasets, inspect patterns, and improve how results are communicated.</p>
+              </article>
+              <article class="focus-item">
+                <h3>Machine learning experimentation</h3>
+                <p>Testing ML-oriented ideas in a practical way, especially where they overlap with classification, analysis, or applied technical problems.</p>
+              </article>
+              <article class="focus-item">
+                <h3>Hackathons and software builds</h3>
+                <p>Continuing to ship collaborative project work that solves a real problem, not just isolated demos.</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="contact" class="section-card panel">
+            <div class="section-heading">
+              <div class="eyebrow">Contact</div>
+              <h2>Professional links</h2>
+              <p>
+                The fastest way to evaluate the breadth of my work is through the repos I am publishing and the
+                professional profile connected to them.
+              </p>
+            </div>
+            <div class="link-grid">
+              <a
+                class="link-card"
+                href="https://github.com/NimishSood"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="meta">GitHub</span>
+                <h3>NimishSood</h3>
+                <p>Primary source for infrastructure, security, data, ML, and hackathon project work.</p>
+                <div class="link-footer">Open GitHub profile</div>
+              </a>
+
+              <a
+                class="link-card"
+                href="https://www.linkedin.com/in/nimishsood/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="meta">LinkedIn</span>
+                <h3>Nimish Sood</h3>
+                <p>Professional profile and career-facing contact point.</p>
+                <div class="link-footer">Open LinkedIn</div>
+              </a>
+            </div>
+          </section>
         </div>
       </div>
 
-      <footer>© <span id="year"></span> Nimish HomeLab</footer>
-    </section>
-  </main>
+      <section class="section-card panel">
+        <div class="section-heading">
+          <div class="eyebrow">Lab access</div>
+          <h2>Self-hosted endpoints</h2>
+          <p>
+            This site is the stable front door on Cloudflare Pages. Some services behind the domain rely on the lab and
+            tunnel path being available.
+          </p>
+        </div>
+        <div class="endpoint-grid">
+          <a class="endpoint-card" href="https://plex.nimishhomelab.com" target="_blank" rel="noopener noreferrer">
+            <span class="meta">Media service</span>
+            <h3>Plex</h3>
+            <p>Direct access to the self-hosted Plex endpoint at plex.nimishhomelab.com.</p>
+            <div class="endpoint-footer">Open Plex</div>
+          </a>
 
-  <script>
-    // Generic favicon-based reachability probe (works cross-origin without CORS).
-    function probeService(faviconUrl, pillId, timeoutMs = 5000) {
-      const pill = document.getElementById(pillId);
-      const set = (state) => {
-        pill.className = 'pill ' + (state === 'ok' ? 'ok' : state === 'bad' ? 'bad' : 'checking');
-        pill.textContent = state === 'ok' ? 'Online' : state === 'bad' ? 'Offline' : 'Checking…';
-      };
-      set('checking');
-      const img = new Image();
-      img.referrerPolicy = 'no-referrer';
-      const t = setTimeout(() => { img.src = ''; set('bad'); }, timeoutMs);
-      img.onload = () => { clearTimeout(t); set('ok'); };
-      img.onerror = () => { clearTimeout(t); set('bad'); };
-      img.src = faviconUrl + (faviconUrl.includes('?') ? '&' : '?') + 'cb=' + Date.now();
-    }
-
-    function scheduleProbes() {
-      probeService('https://plex.nimishhomelab.com/favicon.ico', 'plex-pill');
-      probeService('https://immich.nimishhomelab.com/favicon.ico', 'immich-pill');
-    }
-
-    // Initial run + refresh every 30s
-    scheduleProbes();
-    setInterval(scheduleProbes, 30000);
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+          <a class="endpoint-card" href="https://immich.nimishhomelab.com" target="_blank" rel="noopener noreferrer">
+            <span class="meta">Photo service</span>
+            <h3>Immich</h3>
+            <p>Direct access to the self-hosted Immich endpoint at immich.nimishhomelab.com.</p>
+            <div class="endpoint-footer">Open Immich</div>
+          </a>
+        </div>
+        <p class="footer-note">
+          Availability depends on the current state of the lab environment and Cloudflare tunnel connectivity.
+        </p>
+        <footer>
+          nimishhomelab.com is a static Cloudflare Pages site used as the landing page for my infrastructure, data,
+          security, and technical project work.
+        </footer>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
