@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Case study for Nimish Sood's malicious URL detection project, including cleaned dataset size, saved metrics, modeling choices, and current limitations."
+  />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#111318" />
+  <meta property="og:title" content="Malicious URL Detection | Nimish Sood" />
+  <meta
+    property="og:description"
+    content="Reproducible lexical URL modeling with saved evaluation metrics and explicit limitations."
+  />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://nimishhomelab.com/projects/malicious-url-detection/" />
+  <link rel="canonical" href="https://nimishhomelab.com/projects/malicious-url-detection/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../assets/site.css" />
+  <title>Malicious URL Detection | Nimish Sood</title>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="site-brand" href="../../index.html">
+        <span class="site-brand__kicker">Nimish Sood</span>
+        <span class="site-brand__title">Security Engineering Portfolio</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="../wazuh/index.html">Wazuh case study</a>
+        <a href="https://github.com/NimishSood/malicious-url-detection" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+    </header>
+
+    <main class="case-shell">
+      <section class="case-hero">
+        <p class="breadcrumb"><a href="../../index.html">Back to portfolio</a> / Malicious URL detection</p>
+        <p class="eyebrow">Security data case study</p>
+        <h1>Malicious URL Detection</h1>
+        <p>
+          This project asks a narrower question than most portfolio ML pages do: what can lexical URL features actually
+          separate, and where do they start to break down? The repo keeps the workflow reproducible, stores run
+          metadata, and publishes the test outputs instead of stopping at notebook screenshots.
+        </p>
+        <div class="action-row">
+          <a class="button button--primary" href="https://github.com/NimishSood/malicious-url-detection" target="_blank" rel="noopener noreferrer">Repository</a>
+          <a class="button button--ghost" href="https://github.com/NimishSood/malicious-url-detection/blob/main/README.md" target="_blank" rel="noopener noreferrer">README</a>
+          <a class="button button--ghost" href="https://github.com/NimishSood/malicious-url-detection/tree/main/results" target="_blank" rel="noopener noreferrer">Results</a>
+        </div>
+      </section>
+
+      <section class="evidence-strip" aria-label="Key evidence">
+        <article class="evidence-chip">
+          <strong>651,191</strong>
+          <span>Rows loaded from the original malicious URL CSV snapshot.</span>
+        </article>
+        <article class="evidence-chip">
+          <strong>640,792</strong>
+          <span>Rows kept after deterministic cleaning and conflict removal.</span>
+        </article>
+        <article class="evidence-chip">
+          <strong>80,000</strong>
+          <span>Stratified modeling sample used to keep k-NN evaluation practical.</span>
+        </article>
+        <article class="evidence-chip">
+          <strong>3-fold CV</strong>
+          <span>Saved model selection and test evaluation with random seed `42`.</span>
+        </article>
+      </section>
+
+      <section class="detail-grid">
+        <article class="detail-card">
+          <h3>Project summary</h3>
+          <dl class="detail-list">
+            <div>
+              <dt>Problem</dt>
+              <dd>Estimate how well lexical URL features alone can distinguish benign and malicious traffic labels.</dd>
+            </div>
+            <div>
+              <dt>What I built</dt>
+              <dd>Cleaning, feature engineering, binary and multiclass training workflows, CSV result exports, and reproducibility metadata for a statistics and data mining project.</dd>
+            </div>
+            <div>
+              <dt>Evidence</dt>
+              <dd>Saved test metrics, class distributions, confusion matrices, feature-set comparison outputs, and a run metadata file with hash and sample details.</dd>
+            </div>
+            <div>
+              <dt>What's complete</dt>
+              <dd>Lexical-only modeling, class-by-class evaluation, and a documented explanation of why the k-NN workflow uses an 80,000-row sample.</dd>
+            </div>
+            <div>
+              <dt>What's next</dt>
+              <dd>Add richer signals such as DNS, content, or temporal context before making broader security claims.</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="detail-card">
+          <h3>What makes this useful</h3>
+          <div class="status-list">
+            <div class="status-item">
+              <strong>It separates predictive power from interpretability.</strong>
+              <p>k-NN performed best on the saved test set, but logistic regression remains easier to inspect and explain.</p>
+            </div>
+            <div class="status-item">
+              <strong>It records the tradeoff behind the sample size.</strong>
+              <p>The repo is explicit that repeated k-NN cross-validation on the full cleaned dataset would be unnecessarily expensive for the course scope.</p>
+            </div>
+            <div class="status-item">
+              <strong>It states the real boundary.</strong>
+              <p>The models use lexical features only. That makes the findings useful, but also narrower than a production phishing or malware detection system.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="figure-grid">
+        <article class="figure-card">
+          <h3>Workflow artifact</h3>
+          <p>
+            This diagram summarizes the current repo pipeline using the numbers from the saved `run_metadata.json` and
+            result files. It is intentionally mechanical because the project itself is about reproducibility.
+          </p>
+          <div class="diagram">
+            <svg viewBox="0 0 860 330" role="img" aria-label="Malicious URL detection workflow diagram">
+              <defs>
+                <marker id="arrowhead" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+                  <polygon points="0 0, 9 3.5, 0 7" fill="#8a95a6"></polygon>
+                </marker>
+              </defs>
+              <rect x="20" y="110" width="145" height="90" rx="14" class="node" />
+              <text x="42" y="142" class="label-strong">Raw CSV</text>
+              <text x="42" y="168">651,191 rows</text>
+              <text x="42" y="192">url + type</text>
+
+              <rect x="195" y="74" width="160" height="160" rx="14" class="node-alt" />
+              <text x="220" y="108" class="label-strong">Cleaning</text>
+              <text x="220" y="134">Drop malformed rows</text>
+              <text x="220" y="160">Drop duplicates</text>
+              <text x="220" y="186">Resolve conflicts</text>
+              <text x="220" y="212">640,792 rows kept</text>
+
+              <rect x="390" y="92" width="160" height="124" rx="14" class="node" />
+              <text x="416" y="124" class="label-strong">Features</text>
+              <text x="416" y="150">Length counts</text>
+              <text x="416" y="176">Host / path stats</text>
+              <text x="416" y="202">Suspicious tokens</text>
+
+              <rect x="582" y="64" width="120" height="180" rx="14" class="node-alt" />
+              <text x="608" y="98" class="label-strong">Models</text>
+              <text x="608" y="126">Baseline</text>
+              <text x="608" y="152">Logistic</text>
+              <text x="608" y="178">k-NN</text>
+              <text x="608" y="204">80,000 sample</text>
+              <text x="608" y="230">3-fold CV</text>
+
+              <rect x="730" y="92" width="110" height="124" rx="14" class="node" />
+              <text x="752" y="124" class="label-strong">Outputs</text>
+              <text x="752" y="150">CSV metrics</text>
+              <text x="752" y="176">Confusion matrices</text>
+              <text x="752" y="202">Run metadata</text>
+
+              <path d="M165 155 H195" class="arrow" />
+              <path d="M355 155 H390" class="arrow" />
+              <path d="M550 155 H582" class="arrow" />
+              <path d="M702 155 H730" class="arrow" />
+            </svg>
+          </div>
+          <p class="caption">The repo records `random_state = 42`, `test_size = 0.2`, and the selected feature set as `extended` for the saved binary workflow.</p>
+        </article>
+
+        <article class="figure-card">
+          <h3>Class distribution artifact</h3>
+          <p>The cleaned dataset remains highly imbalanced. This is why balanced accuracy and macro F1 matter more here than headline accuracy alone.</p>
+          <div class="bars" aria-label="Cleaned class distribution">
+            <div class="bar-row">
+              <span>benign</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 66.78%;"></div></div>
+              <span>66.78%</span>
+            </div>
+            <div class="bar-row">
+              <span>defacement</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 14.87%;"></div></div>
+              <span>14.87%</span>
+            </div>
+            <div class="bar-row">
+              <span>phishing</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 14.66%;"></div></div>
+              <span>14.66%</span>
+            </div>
+            <div class="bar-row">
+              <span>malware</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 3.69%;"></div></div>
+              <span>3.69%</span>
+            </div>
+          </div>
+          <p class="table-note">Counts from the saved `cleaned_class_distribution.csv` file: benign `427,931`, defacement `95,285`, phishing `93,931`, malware `23,645`.</p>
+        </article>
+      </section>
+
+      <section class="metric-grid">
+        <article class="metric-table">
+          <h3>Held-out binary test metrics</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Accuracy</th>
+                <th>Balanced acc.</th>
+                <th>Macro F1</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>k-NN</strong></td>
+                <td>0.9444</td>
+                <td>0.9351</td>
+                <td>0.9371</td>
+              </tr>
+              <tr>
+                <td><strong>Logistic regression</strong></td>
+                <td>0.8616</td>
+                <td>0.8425</td>
+                <td>0.8436</td>
+              </tr>
+              <tr>
+                <td><strong>Majority baseline</strong></td>
+                <td>0.6678</td>
+                <td>0.5000</td>
+                <td>0.4004</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="table-note">The saved binary metrics also report k-NN precision `0.9241`, recall `0.9072`, and F1 `0.9156` on the benign-vs-malicious task.</p>
+        </article>
+
+        <article class="metric-table">
+          <h3>Held-out multiclass test metrics</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Accuracy</th>
+                <th>Balanced acc.</th>
+                <th>Macro F1</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>k-NN</strong></td>
+                <td>0.9270</td>
+                <td>0.8795</td>
+                <td>0.8911</td>
+              </tr>
+              <tr>
+                <td><strong>Logistic regression</strong></td>
+                <td>0.7644</td>
+                <td>0.7958</td>
+                <td>0.7251</td>
+              </tr>
+              <tr>
+                <td><strong>Majority baseline</strong></td>
+                <td>0.6678</td>
+                <td>0.2500</td>
+                <td>0.2002</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="table-note">Per-class metrics show phishing as the hardest multiclass category for both major models. For k-NN, phishing recall is `0.7330`, lower than benign, defacement, and malware.</p>
+        </article>
+      </section>
+
+      <section class="detail-grid">
+        <article class="callout">
+          <h3>What the current results actually say</h3>
+          <ul class="bullet-list">
+            <li>k-NN is the strongest predictive model in the saved outputs for both binary and multiclass tasks.</li>
+            <li>Logistic regression gives up some performance, but it is easier to interpret and reason about.</li>
+            <li>Phishing remains the messiest class, which is exactly the kind of weakness a useful evaluation should surface.</li>
+            <li>The selected `extended` feature set only slightly outperformed the `core` set in cross-validation, which keeps expectations grounded.</li>
+          </ul>
+        </article>
+
+        <article class="callout">
+          <h3>Plain limitations</h3>
+          <ul class="bullet-list">
+            <li>The workflow is lexical-only. It does not inspect page content, DNS, WHOIS, or temporal behavior.</li>
+            <li>The 80,000-row sample is a practical compute tradeoff, not a full-dataset benchmark.</li>
+            <li>These metrics are meaningful for this dataset, but they are not evidence of production readiness.</li>
+            <li>The project is strongest as an example of reproducible analysis and honest evaluation, not as a deployed detection system.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Nimish Sood · Malicious URL Detection case study · <a class="inline-link" href="../../index.html">Return to portfolio</a></p>
+    </footer>
+  </div>
+</body>
+</html>

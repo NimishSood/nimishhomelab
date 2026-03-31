@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Case study for Nimish Sood's Wazuh homelab: a two-VM Ubuntu deployment documenting the indexer, dashboard, TLS workflow, and what remains incomplete."
+  />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#111318" />
+  <meta property="og:title" content="Wazuh Homelab | Nimish Sood" />
+  <meta
+    property="og:description"
+    content="Two-VM Wazuh deployment with documented TLS setup, configuration corrections, and verification notes."
+  />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://nimishhomelab.com/projects/wazuh/" />
+  <link rel="canonical" href="https://nimishhomelab.com/projects/wazuh/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../assets/site.css" />
+  <title>Wazuh Homelab | Nimish Sood</title>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="site-brand" href="../../index.html">
+        <span class="site-brand__kicker">Nimish Sood</span>
+        <span class="site-brand__title">Security Engineering Portfolio</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="../malicious-url-detection/index.html">Malicious URL case study</a>
+        <a href="https://github.com/NimishSood/siem-homelab-wazuh" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+    </header>
+
+    <main class="case-shell">
+      <section class="case-hero">
+        <p class="breadcrumb"><a href="../../index.html">Back to portfolio</a> / Wazuh homelab</p>
+        <p class="eyebrow">Security infrastructure case study</p>
+        <h1>Wazuh Homelab</h1>
+        <p>
+          This project documents a learning-oriented SIEM deployment instead of just naming tools. The current public
+          scope is a Wazuh Indexer on one Ubuntu VM and a Wazuh Dashboard on a second Ubuntu VM, both inside VMware
+          Workstation, both wired with TLS, and both written up step-by-step. It is not a finished SOC stack yet, and
+          the case study says that plainly.
+        </p>
+        <div class="action-row">
+          <a class="button button--primary" href="https://github.com/NimishSood/siem-homelab-wazuh" target="_blank" rel="noopener noreferrer">Repository</a>
+          <a class="button button--ghost" href="https://github.com/NimishSood/siem-homelab-wazuh/blob/main/docs/part1-wazuh-indexer/wazuh-indexer-deployment.md" target="_blank" rel="noopener noreferrer">Indexer guide</a>
+          <a class="button button--ghost" href="https://github.com/NimishSood/siem-homelab-wazuh/blob/main/docs/part2-wazuh-dashboard/wazuh-dashboard-deployment.md" target="_blank" rel="noopener noreferrer">Dashboard guide</a>
+        </div>
+      </section>
+
+      <section class="evidence-strip" aria-label="Key evidence">
+        <article class="evidence-chip">
+          <strong>2 VMs</strong>
+          <span>Dedicated Ubuntu 24.04.4 LTS machines for indexer and dashboard.</span>
+        </article>
+        <article class="evidence-chip">
+          <strong>192.168.71.100</strong>
+          <span>Static IP assigned to the Wazuh Indexer on the VMware NAT network.</span>
+        </article>
+        <article class="evidence-chip">
+          <strong>192.168.71.103</strong>
+          <span>Static IP assigned to the Wazuh Dashboard with browser access over HTTPS.</span>
+        </article>
+        <article class="evidence-chip">
+          <strong>TLS + tuning</strong>
+          <span>Certificate workflow, memory locking, JVM sizing, and service verification are all documented.</span>
+        </article>
+      </section>
+
+      <section class="detail-grid">
+        <article class="detail-card">
+          <h3>Project summary</h3>
+          <dl class="detail-list">
+            <div>
+              <dt>Problem</dt>
+              <dd>Build a usable SIEM lab that exposes the configuration work, not just the tool names.</dd>
+            </div>
+            <div>
+              <dt>What I built</dt>
+              <dd>A single-node Wazuh Indexer VM plus a separate Wazuh Dashboard VM, both configured on Ubuntu Server 24.04.4 LTS in VMware Workstation.</dd>
+            </div>
+            <div>
+              <dt>Evidence</dt>
+              <dd>Public deployment guides, VM sizing, port requirements, TLS generation steps, verification commands, and correction notes in the repo.</dd>
+            </div>
+            <div>
+              <dt>What's complete</dt>
+              <dd>Indexer deployment, dashboard deployment, certificate regeneration, and documented verification of active services and accessible dashboard login.</dd>
+            </div>
+            <div>
+              <dt>What's next</dt>
+              <dd>Graylog ingestion, a proper server/manager layer, and a less fragile design than the current single-node indexer setup.</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="detail-card">
+          <h3>What makes this credible</h3>
+          <div class="status-list">
+            <div class="status-item">
+              <strong>It records mistakes and corrections.</strong>
+              <p>The dashboard node was missing from the original certificate config, which forced a full certificate regeneration pass.</p>
+            </div>
+            <div class="status-item">
+              <strong>It documents verification, not just install commands.</strong>
+              <p>The repo includes cluster initialization checks, service status validation, and the expected dashboard warning state when the server layer is missing.</p>
+            </div>
+            <div class="status-item">
+              <strong>It is explicit about what is incomplete.</strong>
+              <p>No Graylog yet, no manager/server yet, and no high-availability cluster. Those are limitations, not hidden details.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="figure-grid">
+        <article class="figure-card">
+          <h3>Documented architecture</h3>
+          <p>
+            The diagram below is derived from the deployment guides and README. It shows the current topology, the IP
+            split between VMs, and the future Graylog node that the repo references but has not deployed yet.
+          </p>
+          <div class="diagram">
+            <svg viewBox="0 0 860 340" role="img" aria-label="Wazuh homelab architecture diagram">
+              <defs>
+                <marker id="arrowhead" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+                  <polygon points="0 0, 9 3.5, 0 7" fill="#8a95a6"></polygon>
+                </marker>
+              </defs>
+              <rect x="40" y="110" width="170" height="96" rx="12" class="node" />
+              <text x="62" y="142" class="label-strong">Browser / Reviewer</text>
+              <text x="62" y="168">HTTPS</text>
+              <text x="62" y="192">Port 443</text>
+
+              <rect x="290" y="54" width="238" height="112" rx="14" class="node-alt" />
+              <text x="314" y="86" class="label-strong">wazuh-dashboard</text>
+              <text x="314" y="112">Ubuntu 24.04.4 LTS</text>
+              <text x="314" y="138">192.168.71.103</text>
+              <text x="314" y="164">2 vCPU / 2 GB / 40 GB</text>
+
+              <rect x="290" y="204" width="238" height="112" rx="14" class="node-alt" />
+              <text x="314" y="236" class="label-strong">wazuh-indexer</text>
+              <text x="314" y="262">Ubuntu 24.04.4 LTS</text>
+              <text x="314" y="288">192.168.71.100</text>
+              <text x="314" y="314">4 vCPU / 8 GB / 100 GB</text>
+
+              <rect x="610" y="124" width="210" height="92" rx="14" class="future" />
+              <text x="634" y="156" class="label-strong">Future Graylog / server</text>
+              <text x="634" y="182">Planned certificate target</text>
+              <text x="634" y="206">Not deployed yet</text>
+
+              <path d="M210 158 H290" class="arrow" />
+              <path d="M409 166 V204" class="arrow" />
+              <path d="M528 110 H610" class="arrow" />
+              <path d="M528 260 H610" class="arrow" />
+            </svg>
+          </div>
+          <p class="caption">Current network: VMware NAT on `192.168.71.0/24`. Ports called out in the repo: `443` for the dashboard and `9200` for Dashboard → Indexer communication.</p>
+        </article>
+
+        <article class="figure-card">
+          <h3>Configuration artifact</h3>
+          <p>This excerpt reflects the values documented in the public deployment guides for the single-node indexer setup and dashboard connection.</p>
+          <div class="code-block">
+            <pre><code># Wazuh Indexer
+network.host: 192.168.71.100
+node.name: wazuh-indexer
+cluster.initial_master_nodes: ["wazuh-indexer"]
+bootstrap.memory_lock: true
+
+# JVM sizing
+-Xms4g
+-Xmx4g
+
+# Wazuh Dashboard
+server.host: 192.168.71.103
+opensearch.hosts: ["https://wazuh-indexer:9200"]
+server.ssl.certificate: /etc/wazuh-dashboard/certs/wazuh-dashboard.pem
+server.ssl.key: /etc/wazuh-dashboard/certs/wazuh-dashboard-key.pem</code></pre>
+          </div>
+          <p class="table-note">The repo also notes a CN mismatch correction in `opensearch.yml`, which is one of the reasons this reads as real work rather than polished summary copy.</p>
+        </article>
+      </section>
+
+      <section class="metric-grid">
+        <article class="metric-table">
+          <h3>Verification steps captured in the repo</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Check</th>
+                <th>What was verified</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Cluster init</strong></td>
+                <td>`indexer-security-init.sh` completed and the log reported `Node has been initialized`.</td>
+              </tr>
+              <tr>
+                <td><strong>Service state</strong></td>
+                <td>`systemctl status wazuh-indexer` and `systemctl start wazuh-dashboard` are both part of the written verification flow.</td>
+              </tr>
+              <tr>
+                <td><strong>Browser access</strong></td>
+                <td>The dashboard guide records access to `https://192.168.71.103` and the expected login page.</td>
+              </tr>
+              <tr>
+                <td><strong>Expected limitation</strong></td>
+                <td>The dashboard shows a no-server warning because the server/manager layer is not deployed yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="callout">
+          <h3>Plain limitations</h3>
+          <ul class="bullet-list">
+            <li>Single-node indexer means no high availability and no resilience if that VM goes down.</li>
+            <li>Graylog is planned but not deployed, so the broader event pipeline is still incomplete.</li>
+            <li>The dashboard warning about no connected server is expected, but it also means the current setup stops short of a full Wazuh workflow.</li>
+            <li>The public repo does not yet contain populated screenshots or architecture PNGs, so this case study relies on the written deployment evidence.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel">
+        <h3>Why this still matters for hiring review</h3>
+        <p>
+          The strongest signal here is not scale. It is that the repo records infrastructure decisions, operational
+          corrections, and verification steps in enough detail that another person could audit what was done. That is a
+          better signal for an early-career security candidate than a page full of tool names.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Nimish Sood · Wazuh case study · <a class="inline-link" href="../../index.html">Return to portfolio</a></p>
+    </footer>
+  </div>
+</body>
+</html>

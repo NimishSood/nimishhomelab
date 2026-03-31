@@ -1,62 +1,84 @@
 # nimishhomelab
 
-Personal portfolio site for [nimishhomelab.com](https://nimishhomelab.com/).
+Static portfolio site for [nimishhomelab.com](https://nimishhomelab.com/).
 
-This project is a single-page static site that presents Nimish Sood's work in cybersecurity, homelab infrastructure, applied ML, and software projects. It is built with plain HTML and CSS, with no framework, build step, or package manager.
+The site is now a small multi-page portfolio built for recruiter and technical hiring-manager review. It is intentionally security-first: the main proof points are a Wazuh homelab, a malicious URL detection project with saved metrics, and one shipped software project.
 
-## What is in this repo
+There is no framework, package manager, or build step. The site is plain HTML and CSS.
 
-- `index.html` contains the full landing page, layout, content, and styles.
-- `404.html` provides a simple fallback page for unknown routes.
-- `_headers` defines security and caching headers for hosts that support that file format.
+## Current structure
 
-## Site sections
+- `index.html` is the homepage.
+- `projects/wazuh/index.html` is the Wazuh homelab case study.
+- `projects/malicious-url-detection/index.html` is the malicious URL detection case study.
+- `assets/site.css` contains the shared visual system for all pages.
+- `assets/Nimish-Sood-Resume.pdf` is the public resume asset linked from the homepage.
+- `404.html` is the custom not-found page.
+- `_headers` defines cache and security headers for static hosts that support that format.
 
-The homepage includes:
+## Portfolio direction
 
-- an intro and contact links
-- a featured projects section
-- homelab infrastructure details
-- AI and ML work
-- self-hosted service links
+This repo no longer presents the portfolio as a broad “student does everything” site.
+
+The current content is organized around:
+
+- security infrastructure evidence
+- security data analysis evidence
+- one compact shipped-product example
+- direct contact and resume access
+
+AI/LLM work is intentionally kept secondary as an experiments note rather than a main portfolio pillar.
+
+Unstable homelab service links were removed from the public site. The public proof path is now documentation, repo artifacts, diagrams, and saved results rather than uptime-dependent endpoints.
 
 ## Running locally
 
-Because this is a static site, you can open `index.html` directly in a browser.
+Because this is a static site, you can preview it with any basic static file server.
 
-If you want a local server instead, run one from the project folder. For example:
+Example:
 
 ```powershell
 python -m http.server 8000
 ```
 
-Then visit `http://localhost:8000`.
+Then open:
+
+- `http://localhost:8000/`
+- `http://localhost:8000/projects/wazuh/`
+- `http://localhost:8000/projects/malicious-url-detection/`
 
 ## Deployment notes
 
-This repo is set up like a simple static hosting deployment:
+This repo is structured for simple static hosting.
 
-- `index.html` is the main entry point
-- `404.html` handles missing pages
-- `_headers` adds security-related response headers and cache rules where supported
+- `index.html`, the case-study routes, and `404.html` are served as static HTML.
+- `assets/` is cacheable static content.
+- `_headers` applies security headers and cache policy where supported by the host.
 
-The `_headers` file currently includes policies such as:
+The current `_headers` file is aligned with the HTML metadata:
 
-- `X-Content-Type-Options: nosniff`
-- `X-Frame-Options: DENY`
-- `Referrer-Policy: no-referrer`
-- `Permissions-Policy` restrictions
-- `Strict-Transport-Security`
+- public pages are not marked `noindex, nofollow`
+- static assets are cacheable
+- security headers remain enabled
 
 ## Editing the site
 
-To update the content or design, edit [index.html](/c:/Users/Nimish/Desktop/nimishhomelab/nimishhomelab/index.html). Fonts are loaded from Google Fonts, and the styling is embedded directly in the page.
+Common update points:
 
-## Domain and purpose
+- edit homepage content in [index.html](/C:/Users/Nimish/Desktop/nimishhomelab/nimishhomelab/index.html)
+- edit Wazuh case study in [projects/wazuh/index.html](/C:/Users/Nimish/Desktop/nimishhomelab/nimishhomelab/projects/wazuh/index.html)
+- edit malicious URL case study in [projects/malicious-url-detection/index.html](/C:/Users/Nimish/Desktop/nimishhomelab/nimishhomelab/projects/malicious-url-detection/index.html)
+- edit shared styling in [assets/site.css](/C:/Users/Nimish/Desktop/nimishhomelab/nimishhomelab/assets/site.css)
+- replace the resume asset in [assets/Nimish-Sood-Resume.pdf](/C:/Users/Nimish/Desktop/nimishhomelab/nimishhomelab/assets/Nimish-Sood-Resume.pdf)
 
-The site is intended to act as a public portfolio and technical landing page for:
+Fonts are loaded from Google Fonts. There is no CSS build pipeline.
 
-- cybersecurity and SIEM work
-- homelab and self-hosting projects
-- applied ML and local LLM experiments
-- co-op, internship, and project opportunities
+## Verification checklist
+
+After edits, verify:
+
+- homepage loads without broken styles
+- both case-study routes return `200`
+- resume link works
+- `_headers` still matches the intended indexing and cache behavior
+- no dead public demo links were added accidentally
