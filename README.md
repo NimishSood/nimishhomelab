@@ -8,6 +8,7 @@ The site is a small multi-page portfolio for recruiter and technical hiring-mana
 - security infrastructure project work
 - security data analysis project work
 - one shipped software example
+- supporting security training evidence from TryHackMe
 
 There is no framework, package manager, or build step. The site is plain HTML and CSS.
 
@@ -29,6 +30,7 @@ The current homepage is organized around:
 - current professional experience at AKA Energy Systems
 - public project evidence from the Wazuh and malicious URL case studies
 - one shipped application with a public repo and deployment
+- supporting security training evidence from TryHackMe
 - direct resume and contact access
 
 The site avoids portfolio-strategy language and keeps the copy focused on scope, artifacts, status, and limitations.

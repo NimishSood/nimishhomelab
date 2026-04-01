@@ -41,7 +41,8 @@ CONTENT = ResumeContent(
     summary=(
         "IT Support Specialist with hands-on experience across identity, endpoint, virtualization, "
         "and internal security operations. Complements professional infrastructure work with public "
-        "security projects in Wazuh deployment and malicious URL classification."
+        "security projects in Wazuh deployment and malicious URL classification, plus TryHackMe "
+        "Pre Security completion and current SEC1 preparation."
     ),
     role_heading="AKA Energy Systems | IT Support Specialist",
     role_meta="Contract Full-time | Jul 2025 - Present | Prince Edward Island, Canada | On-site",

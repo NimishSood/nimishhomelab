@@ -16,7 +16,7 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 6 0 obj
-<< /Length 5439 >>
+<< /Length 5577 >>
 stream
 BT
 /F2 24.00 Tf
@@ -74,230 +74,236 @@ BT
 /F1 10.50 Tf
 0.080 0.080 0.080 rg
 1 0 0 1 54.00 617.65 Tm
-(security projects in Wazuh deployment and malicious URL classification.) Tj
+(security projects in Wazuh deployment and malicious URL classification, plus TryHackMe Pre) Tj
+ET
+BT
+/F1 10.50 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 603.48 Tm
+(Security completion and current SEC1 preparation.) Tj
 ET
 BT
 /F2 10.50 Tf
 0.090 0.180 0.310 rg
-1 0 0 1 54.00 595.48 Tm
+1 0 0 1 54.00 581.30 Tm
 (EXPERIENCE) Tj
 ET
 0.80 w
 0.820 0.840 0.870 RG
-140.00 599.48 m
-558.00 599.48 l
+140.00 585.30 m
+558.00 585.30 l
 S
 BT
 /F2 11.40 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 54.00 575.48 Tm
+1 0 0 1 54.00 561.30 Tm
 (AKA Energy Systems | IT Support Specialist) Tj
 ET
 BT
 /F1 9.40 Tf
 0.340 0.380 0.430 rg
-1 0 0 1 54.00 561.48 Tm
+1 0 0 1 54.00 547.30 Tm
 (Contract Full-time | Jul 2025 - Present | Prince Edward Island, Canada | On-site) Tj
 ET
 BT
 /F1 10.20 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 54.00 543.48 Tm
+1 0 0 1 54.00 529.30 Tm
 (-) Tj
 ET
 BT
 /F1 10.20 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 65.00 543.48 Tm
+1 0 0 1 65.00 529.30 Tm
 (Supported core IT infrastructure and security operations across virtualized, server, identity,) Tj
 ET
 BT
 /F1 10.20 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 65.00 530.01 Tm
+1 0 0 1 65.00 515.84 Tm
 (endpoint, and network environments.) Tj
 ET
 BT
 /F1 10.20 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 54.00 512.55 Tm
+1 0 0 1 54.00 498.37 Tm
 (-) Tj
 ET
 BT
 /F1 10.20 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 65.00 512.55 Tm
+1 0 0 1 65.00 498.37 Tm
 (Implemented Microsoft Entra ID Conditional Access and built internal GoPhish campaigns for) Tj
 ET
 BT
 /F1 10.20 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 65.00 499.08 Tm
+1 0 0 1 65.00 484.91 Tm
 (access control hardening and security awareness testing.) Tj
 ET
 BT
 /F1 10.20 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 54.00 481.62 Tm
+1 0 0 1 54.00 467.44 Tm
 (-) Tj
 ET
 BT
 /F1 10.20 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 65.00 481.62 Tm
+1 0 0 1 65.00 467.44 Tm
 (Provisioned and managed Windows and Ubuntu virtual machines in Proxmox with static IP) Tj
 ET
 BT
 /F1 10.20 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 65.00 468.16 Tm
+1 0 0 1 65.00 453.98 Tm
 (assignment, VLAN-aware configuration, and infrastructure support for internal services.) Tj
 ET
 BT
 /F1 10.20 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 54.00 450.69 Tm
+1 0 0 1 54.00 436.52 Tm
 (-) Tj
 ET
 BT
 /F1 10.20 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 65.00 450.69 Tm
+1 0 0 1 65.00 436.52 Tm
 (Improved endpoint operations with ManageEngine Desktop Central for patching, software) Tj
 ET
 BT
 /F1 10.20 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 65.00 437.23 Tm
+1 0 0 1 65.00 423.05 Tm
 (deployment, inventory management, and remote administration.) Tj
 ET
 BT
 /F1 10.20 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 54.00 419.76 Tm
+1 0 0 1 54.00 405.59 Tm
 (-) Tj
 ET
 BT
 /F1 10.20 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 65.00 419.76 Tm
+1 0 0 1 65.00 405.59 Tm
 (Contributed to early planning for a Wazuh-based SIEM deployment to improve centralized) Tj
 ET
 BT
 /F1 10.20 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 65.00 406.30 Tm
+1 0 0 1 65.00 392.12 Tm
 (logging, monitoring, and future detection capability.) Tj
 ET
 BT
 /F2 10.50 Tf
 0.090 0.180 0.310 rg
-1 0 0 1 54.00 384.84 Tm
+1 0 0 1 54.00 370.66 Tm
 (PROJECTS) Tj
 ET
 0.80 w
 0.820 0.840 0.870 RG
-140.00 388.84 m
-558.00 388.84 l
+140.00 374.66 m
+558.00 374.66 l
 S
 BT
 /F2 11.10 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 54.00 364.84 Tm
+1 0 0 1 54.00 350.66 Tm
 (Wazuh Stack Bring-Up) Tj
 ET
 BT
 /F1 10.15 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 54.00 350.84 Tm
+1 0 0 1 54.00 336.66 Tm
 (-) Tj
 ET
 BT
 /F1 10.15 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 65.00 350.84 Tm
+1 0 0 1 65.00 336.66 Tm
 (Deployed Wazuh indexer and dashboard on separate Ubuntu 24.04 VMs in VMware Workstation with) Tj
 ET
 BT
 /F1 10.15 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 65.00 337.44 Tm
+1 0 0 1 65.00 323.26 Tm
 (TLS, JVM sizing, configuration notes, and documented verification steps.) Tj
 ET
 BT
 /F2 11.10 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 54.00 318.04 Tm
+1 0 0 1 54.00 303.86 Tm
 (Malicious URL Classification) Tj
 ET
 BT
 /F1 10.15 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 54.00 304.04 Tm
+1 0 0 1 54.00 289.86 Tm
 (-) Tj
 ET
 BT
 /F1 10.15 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 65.00 304.04 Tm
+1 0 0 1 65.00 289.86 Tm
 (Built a lexical-feature benchmark with 651,191 source rows, 640,792 cleaned records, an) Tj
 ET
 BT
 /F1 10.15 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 65.00 290.64 Tm
+1 0 0 1 65.00 276.47 Tm
 (80,000-row modeling sample, and saved binary and multiclass evaluation outputs.) Tj
 ET
 BT
 /F2 10.50 Tf
 0.090 0.180 0.310 rg
-1 0 0 1 54.00 271.24 Tm
+1 0 0 1 54.00 257.07 Tm
 (EDUCATION) Tj
 ET
 0.80 w
 0.820 0.840 0.870 RG
-140.00 275.24 m
-558.00 275.24 l
+140.00 261.07 m
+558.00 261.07 l
 S
 BT
 /F2 11.20 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 54.00 251.24 Tm
+1 0 0 1 54.00 237.07 Tm
 (University of Prince Edward Island) Tj
 ET
 BT
 /F1 10.20 Tf
 0.340 0.380 0.430 rg
-1 0 0 1 54.00 237.24 Tm
+1 0 0 1 54.00 223.07 Tm
 (Bachelor of Science in Computer Science \(Co-op\) | Expected 2027) Tj
 ET
 BT
 /F2 10.50 Tf
 0.090 0.180 0.310 rg
-1 0 0 1 54.00 211.24 Tm
+1 0 0 1 54.00 197.07 Tm
 (TECHNICAL SKILLS) Tj
 ET
 0.80 w
 0.820 0.840 0.870 RG
-140.00 215.24 m
-558.00 215.24 l
+140.00 201.07 m
+558.00 201.07 l
 S
 BT
 /F1 10.10 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 54.00 191.24 Tm
+1 0 0 1 54.00 177.07 Tm
 (Security / Identity: Microsoft Entra ID, Conditional Access, GoPhish, Wazuh, Pi-hole) Tj
 ET
 BT
 /F1 10.10 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 54.00 174.61 Tm
+1 0 0 1 54.00 160.43 Tm
 (Infrastructure: Proxmox VE, VMware Workstation, Windows, Ubuntu, VLAN-aware networking) Tj
 ET
 BT
 /F1 10.10 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 54.00 157.97 Tm
+1 0 0 1 54.00 143.80 Tm
 (Endpoint / Development: ManageEngine Desktop Central, Python, TypeScript, Git, Next.js, Firebase) Tj
 ET
 endstream
@@ -314,5 +320,5 @@ xref
 trailer
 << /Size 7 /Root 1 0 R >>
 startxref
-5893
+6031
 %%EOF
