@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Case study for Nimish Sood's malicious URL detection project, including cleaned dataset size, saved metrics, modeling choices, and current limitations."
+    content="Case study for Nimish Sood's malicious URL classification project, including cleaned dataset size, saved metrics, modeling choices, and current limitations."
   />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#111318" />
-  <meta property="og:title" content="Malicious URL Detection | Nimish Sood" />
+  <meta property="og:title" content="Malicious URL Classification | Nimish Sood" />
   <meta
     property="og:description"
-    content="Reproducible lexical URL modeling with saved evaluation metrics and explicit limitations."
+    content="Reproducible lexical URL classification with saved evaluation metrics and explicit limitations."
   />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://nimishhomelab.com/projects/malicious-url-detection/" />
@@ -24,7 +24,7 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="../../assets/site.css" />
-  <title>Malicious URL Detection | Nimish Sood</title>
+  <title>Malicious URL Classification | Nimish Sood</title>
 </head>
 <body>
   <div class="site-shell">
@@ -42,13 +42,13 @@
 
     <main class="case-shell">
       <section class="case-hero">
-        <p class="breadcrumb"><a href="../../index.html">Back to portfolio</a> / Malicious URL detection</p>
+        <p class="breadcrumb"><a href="../../index.html">Back to portfolio</a> / Malicious URL classification</p>
         <p class="eyebrow">Security data case study</p>
-        <h1>Malicious URL Detection</h1>
+        <h1>Malicious URL Classification</h1>
         <p>
-          This project asks a narrower question than most portfolio ML pages do: what can lexical URL features actually
-          separate, and where do they start to break down? The repo keeps the workflow reproducible, stores run
-          metadata, and publishes the test outputs instead of stopping at notebook screenshots.
+          This repo benchmarks what lexical URL features can separate in a malicious versus benign classification
+          setting. The public repo includes cleaning steps, sampled training workflows, saved outputs, and run
+          metadata. It does not use DNS, WHOIS, page content, or temporal signals.
         </p>
         <div class="action-row">
           <a class="button button--primary" href="https://github.com/NimishSood/malicious-url-detection" target="_blank" rel="noopener noreferrer">Repository</a>
@@ -72,51 +72,51 @@
         </article>
         <article class="evidence-chip">
           <strong>3-fold CV</strong>
-          <span>Saved model selection and test evaluation with random seed `42`.</span>
+          <span>Saved model selection and test evaluation with random seed <code>42</code>.</span>
         </article>
       </section>
 
       <section class="detail-grid">
         <article class="detail-card">
-          <h3>Project summary</h3>
+          <h3>Current scope</h3>
           <dl class="detail-list">
             <div>
-              <dt>Problem</dt>
+              <dt>Question</dt>
               <dd>Estimate how well lexical URL features alone can distinguish benign and malicious traffic labels.</dd>
             </div>
             <div>
-              <dt>What I built</dt>
+              <dt>Built</dt>
               <dd>Cleaning, feature engineering, binary and multiclass training workflows, CSV result exports, and reproducibility metadata for a statistics and data mining project.</dd>
             </div>
             <div>
-              <dt>Evidence</dt>
+              <dt>Artifacts</dt>
               <dd>Saved test metrics, class distributions, confusion matrices, feature-set comparison outputs, and a run metadata file with hash and sample details.</dd>
             </div>
             <div>
-              <dt>What's complete</dt>
+              <dt>Completed</dt>
               <dd>Lexical-only modeling, class-by-class evaluation, and a documented explanation of why the k-NN workflow uses an 80,000-row sample.</dd>
             </div>
             <div>
-              <dt>What's next</dt>
-              <dd>Add richer signals such as DNS, content, or temporal context before making broader security claims.</dd>
+              <dt>Not included</dt>
+              <dd>DNS, content, WHOIS, and temporal features are outside the current benchmark.</dd>
             </div>
           </dl>
         </article>
 
         <article class="detail-card">
-          <h3>What makes this useful</h3>
+          <h3>Modeling notes</h3>
           <div class="status-list">
             <div class="status-item">
-              <strong>It separates predictive power from interpretability.</strong>
-              <p>k-NN performed best on the saved test set, but logistic regression remains easier to inspect and explain.</p>
+              <strong>Best saved model</strong>
+              <p>k-NN produced the strongest saved test metrics, while logistic regression remained easier to inspect and explain.</p>
             </div>
             <div class="status-item">
-              <strong>It records the tradeoff behind the sample size.</strong>
-              <p>The repo is explicit that repeated k-NN cross-validation on the full cleaned dataset would be unnecessarily expensive for the course scope.</p>
+              <strong>Sampling tradeoff</strong>
+              <p>The 80,000-row sample keeps repeated k-NN cross-validation practical for the course scope.</p>
             </div>
             <div class="status-item">
-              <strong>It states the real boundary.</strong>
-              <p>The models use lexical features only. That makes the findings useful, but also narrower than a production phishing or malware detection system.</p>
+              <strong>Feature boundary</strong>
+              <p>The models use lexical features only, so the results are narrower than a production phishing or malware detection system.</p>
             </div>
           </div>
         </article>
@@ -126,8 +126,8 @@
         <article class="figure-card">
           <h3>Workflow artifact</h3>
           <p>
-            This diagram summarizes the current repo pipeline using the numbers from the saved `run_metadata.json` and
-            result files. It is intentionally mechanical because the project itself is about reproducibility.
+            This diagram summarizes the current repo pipeline using the numbers from the saved <code>run_metadata.json</code>
+            and result files.
           </p>
           <div class="diagram">
             <svg viewBox="0 0 860 330" role="img" aria-label="Malicious URL detection workflow diagram">
@@ -174,7 +174,7 @@
               <path d="M702 155 H730" class="arrow" />
             </svg>
           </div>
-          <p class="caption">The repo records `random_state = 42`, `test_size = 0.2`, and the selected feature set as `extended` for the saved binary workflow.</p>
+          <p class="caption">The repo records <code>random_state = 42</code>, <code>test_size = 0.2</code>, and the selected feature set as <code>extended</code> for the saved binary workflow.</p>
         </article>
 
         <article class="figure-card">
@@ -202,7 +202,7 @@
               <span>3.69%</span>
             </div>
           </div>
-          <p class="table-note">Counts from the saved `cleaned_class_distribution.csv` file: benign `427,931`, defacement `95,285`, phishing `93,931`, malware `23,645`.</p>
+          <p class="table-note">Counts from the saved <code>cleaned_class_distribution.csv</code> file: benign <code>427,931</code>, defacement <code>95,285</code>, phishing <code>93,931</code>, malware <code>23,645</code>.</p>
         </article>
       </section>
 
@@ -239,7 +239,7 @@
               </tr>
             </tbody>
           </table>
-          <p class="table-note">The saved binary metrics also report k-NN precision `0.9241`, recall `0.9072`, and F1 `0.9156` on the benign-vs-malicious task.</p>
+          <p class="table-note">The saved binary metrics also report k-NN precision <code>0.9241</code>, recall <code>0.9072</code>, and F1 <code>0.9156</code> on the benign-vs-malicious task.</p>
         </article>
 
         <article class="metric-table">
@@ -274,35 +274,35 @@
               </tr>
             </tbody>
           </table>
-          <p class="table-note">Per-class metrics show phishing as the hardest multiclass category for both major models. For k-NN, phishing recall is `0.7330`, lower than benign, defacement, and malware.</p>
+          <p class="table-note">Per-class metrics show phishing as the hardest multiclass category for both major models. For k-NN, phishing recall is <code>0.7330</code>, lower than benign, defacement, and malware.</p>
         </article>
       </section>
 
       <section class="detail-grid">
         <article class="callout">
-          <h3>What the current results actually say</h3>
+          <h3>Result highlights</h3>
           <ul class="bullet-list">
             <li>k-NN is the strongest predictive model in the saved outputs for both binary and multiclass tasks.</li>
             <li>Logistic regression gives up some performance, but it is easier to interpret and reason about.</li>
-            <li>Phishing remains the messiest class, which is exactly the kind of weakness a useful evaluation should surface.</li>
-            <li>The selected `extended` feature set only slightly outperformed the `core` set in cross-validation, which keeps expectations grounded.</li>
+            <li>Phishing remains the hardest multiclass category in the saved evaluation outputs.</li>
+            <li>The selected <code>extended</code> feature set only slightly outperformed the <code>core</code> set in cross-validation.</li>
           </ul>
         </article>
 
         <article class="callout">
-          <h3>Plain limitations</h3>
+          <h3>Current limitations</h3>
           <ul class="bullet-list">
             <li>The workflow is lexical-only. It does not inspect page content, DNS, WHOIS, or temporal behavior.</li>
             <li>The 80,000-row sample is a practical compute tradeoff, not a full-dataset benchmark.</li>
             <li>These metrics are meaningful for this dataset, but they are not evidence of production readiness.</li>
-            <li>The project is strongest as an example of reproducible analysis and honest evaluation, not as a deployed detection system.</li>
+            <li>The project is a classification benchmark, not a deployed detection system.</li>
           </ul>
         </article>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>Nimish Sood · Malicious URL Detection case study · <a class="inline-link" href="../../index.html">Return to portfolio</a></p>
+      <p>Nimish Sood · Malicious URL Classification · <a class="inline-link" href="../../index.html">Return to portfolio</a></p>
     </footer>
   </div>
 </body>

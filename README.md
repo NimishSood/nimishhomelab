@@ -2,34 +2,38 @@
 
 Static portfolio site for [nimishhomelab.com](https://nimishhomelab.com/).
 
-The site is now a small multi-page portfolio built for recruiter and technical hiring-manager review. It is intentionally security-first: the main proof points are a Wazuh homelab, a malicious URL detection project with saved metrics, and one shipped software project.
+The site is a small multi-page portfolio for recruiter and technical hiring-manager review. It now combines:
+
+- one current professional role summary
+- security infrastructure project work
+- security data analysis project work
+- one shipped software example
 
 There is no framework, package manager, or build step. The site is plain HTML and CSS.
 
 ## Current structure
 
 - `index.html` is the homepage.
-- `projects/wazuh/index.html` is the Wazuh homelab case study.
-- `projects/malicious-url-detection/index.html` is the malicious URL detection case study.
+- `projects/wazuh/index.html` is the Wazuh stack bring-up case study.
+- `projects/malicious-url-detection/index.html` is the malicious URL classification case study.
 - `assets/site.css` contains the shared visual system for all pages.
 - `assets/Nimish-Sood-Resume.pdf` is the public resume asset linked from the homepage.
+- `scripts/generate_resume_pdf.py` rebuilds the resume PDF from a text-based source.
 - `404.html` is the custom not-found page.
 - `_headers` defines cache and security headers for static hosts that support that format.
 
 ## Portfolio direction
 
-This repo no longer presents the portfolio as a broad “student does everything” site.
+The current homepage is organized around:
 
-The current content is organized around:
+- current professional experience at AKA Energy Systems
+- public project evidence from the Wazuh and malicious URL case studies
+- one shipped application with a public repo and deployment
+- direct resume and contact access
 
-- security infrastructure evidence
-- security data analysis evidence
-- one compact shipped-product example
-- direct contact and resume access
+The site avoids portfolio-strategy language and keeps the copy focused on scope, artifacts, status, and limitations.
 
-AI/LLM work is intentionally kept secondary as an experiments note rather than a main portfolio pillar.
-
-Unstable homelab service links were removed from the public site. The public proof path is now documentation, repo artifacts, diagrams, and saved results rather than uptime-dependent endpoints.
+Employer work is summarized with public-safe detail only. Public projects remain separate from professional work.
 
 ## Running locally
 
@@ -69,7 +73,7 @@ Common update points:
 - edit Wazuh case study in [projects/wazuh/index.html](/C:/Users/Nimish/Desktop/nimishhomelab/nimishhomelab/projects/wazuh/index.html)
 - edit malicious URL case study in [projects/malicious-url-detection/index.html](/C:/Users/Nimish/Desktop/nimishhomelab/nimishhomelab/projects/malicious-url-detection/index.html)
 - edit shared styling in [assets/site.css](/C:/Users/Nimish/Desktop/nimishhomelab/nimishhomelab/assets/site.css)
-- replace the resume asset in [assets/Nimish-Sood-Resume.pdf](/C:/Users/Nimish/Desktop/nimishhomelab/nimishhomelab/assets/Nimish-Sood-Resume.pdf)
+- edit the resume source in [scripts/generate_resume_pdf.py](/C:/Users/Nimish/Desktop/nimishhomelab/nimishhomelab/scripts/generate_resume_pdf.py) and rebuild [assets/Nimish-Sood-Resume.pdf](/C:/Users/Nimish/Desktop/nimishhomelab/nimishhomelab/assets/Nimish-Sood-Resume.pdf)
 
 Fonts are loaded from Google Fonts. There is no CSS build pipeline.
 
@@ -80,5 +84,5 @@ After edits, verify:
 - homepage loads without broken styles
 - both case-study routes return `200`
 - resume link works
+- navigation anchors still point to live homepage sections
 - `_headers` still matches the intended indexing and cache behavior
-- no dead public demo links were added accidentally

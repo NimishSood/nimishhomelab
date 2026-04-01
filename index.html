@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Nimish Sood is a UPEI computer science student building toward SOC and security engineering roles. Portfolio evidence includes a Wazuh homelab, malicious URL detection analysis, and a deployed Next.js project."
+    content="Nimish Sood is a UPEI computer science student and IT Support Specialist at AKA Energy Systems. Public work includes a Wazuh stack bring-up, malicious URL classification, and shipped Next.js software."
   />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#111318" />
   <meta property="og:title" content="Nimish Sood | Security Engineering Portfolio" />
   <meta
     property="og:description"
-    content="Security-first portfolio with evidence from a Wazuh homelab, malicious URL detection analysis, and shipped software."
+    content="IT support and security-focused portfolio with professional infrastructure work, a Wazuh stack bring-up, malicious URL classification, and shipped software."
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nimishhomelab.com/" />
@@ -34,9 +34,8 @@
         <span class="site-brand__title">Security Engineering Portfolio</span>
       </a>
       <nav class="site-nav" aria-label="Primary">
+        <a href="#experience">Experience</a>
         <a href="#work">Selected work</a>
-        <a href="#evidence">Evidence</a>
-        <a href="#experiments">Experiments</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -44,12 +43,12 @@
     <main>
       <section class="hero">
         <div class="hero__main">
-          <p class="eyebrow">UPEI computer science · Co-op track · Expected 2027</p>
+          <p class="eyebrow">IT Support Specialist at AKA Energy Systems · UPEI computer science · Co-op track · Expected 2027</p>
           <h1>Nimish Sood</h1>
           <p class="hero__summary">
-            Building toward SOC and security engineering roles. The strongest public work here is a two-VM Wazuh lab on
-            Ubuntu 24.04, a malicious URL classification project with saved evaluation outputs, and one deployed
-            product build in Next.js and TypeScript. This site is structured around proof, not breadth.
+            IT Support Specialist at AKA Energy Systems with hands-on work across identity, endpoint, virtualization,
+            and internal security operations. Public work includes a documented two-VM Wazuh deployment on Ubuntu
+            24.04, a malicious URL classification benchmark with saved metrics, and a deployed Next.js product build.
           </p>
           <div class="hero__actions">
             <a class="button button--primary" href="./assets/Nimish-Sood-Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
@@ -67,12 +66,12 @@
               <dd>SOC analyst, detection engineering, security engineering</dd>
             </div>
             <div>
-              <dt>Strongest evidence</dt>
-              <dd>Wazuh lab build, saved model metrics, public deployment links, repo documentation</dd>
+              <dt>Current role</dt>
+              <dd>IT Support Specialist · AKA Energy Systems · Jul 2025 - Present</dd>
             </div>
             <div>
-              <dt>Current state</dt>
-              <dd>Security-first portfolio. AI work is exploratory and intentionally kept secondary.</dd>
+              <dt>Public work</dt>
+              <dd>Wazuh deployment notes, saved model metrics, public repos, and live deployment links</dd>
             </div>
             <div>
               <dt>Outreach</dt>
@@ -82,14 +81,44 @@
         </aside>
       </section>
 
+      <section class="section" id="experience">
+        <div class="section-heading">
+          <p class="eyebrow">Professional experience</p>
+          <h2>Current role</h2>
+          <p>Current employer work summarized here with public-safe detail.</p>
+        </div>
+
+        <article class="experience-card">
+          <div class="experience-card__header">
+            <div>
+              <p class="card-meta">Professional experience</p>
+              <h3>IT Support Specialist · AKA Energy Systems</h3>
+              <p class="experience-card__meta">Contract full-time · Jul 2025 - Present · Prince Edward Island, Canada · On-site</p>
+            </div>
+          </div>
+          <div class="experience-card__body">
+            <p class="experience-card__scope">
+              Supports infrastructure and security operations across virtualization, identity, endpoint, server, and
+              network environments.
+            </p>
+            <ul class="bullet-list experience-list">
+              <li>Implemented Microsoft Entra ID Conditional Access policies to reduce exposure to token theft and unauthorized session persistence.</li>
+              <li>Built and configured internal phishing simulation campaigns with GoPhish for awareness testing and internal readiness exercises.</li>
+              <li>Provisioned and managed Windows and Ubuntu virtual machines in Proxmox, including static IP assignment and VLAN-aware configuration.</li>
+              <li>Improved endpoint operations with ManageEngine Desktop Central for patching, software deployment, inventory, and remote administration.</li>
+              <li>Contributed to early planning for a Wazuh-based SIEM deployment for centralized logging and future detection coverage.</li>
+            </ul>
+            <p class="experience-card__tools"><strong>Areas:</strong> Microsoft Entra ID, GoPhish, Proxmox VE, ManageEngine Desktop Central, Windows, Ubuntu, endpoint operations, network support.</p>
+            <p class="experience-card__note">Public summary only. Internal system names, metrics, and implementation details are omitted.</p>
+          </div>
+        </article>
+      </section>
+
       <section class="section" id="work">
         <div class="section-heading">
           <p class="eyebrow">Selected work</p>
-          <h2>Three projects, ordered by relevance</h2>
-          <p>
-            The first two projects are the strongest fit for security hiring review. CropGuard stays here as evidence
-            of shipping a real interface under time pressure, not as the core narrative.
-          </p>
+          <h2>Public projects</h2>
+          <p>Independent and school work with public repos, deployment notes, saved outputs, or live deployments.</p>
         </div>
 
         <div class="project-stack">
@@ -97,7 +126,7 @@
             <div class="project-card__header">
               <div>
                 <p class="card-meta">Security infrastructure</p>
-                <h3>Wazuh Homelab</h3>
+                <h3>Wazuh Stack Bring-Up</h3>
               </div>
               <div class="card-actions">
                 <a class="button button--ghost" href="./projects/wazuh/index.html">Case study</a>
@@ -106,24 +135,24 @@
             </div>
             <div class="project-card__body">
               <div>
-                <h4>Problem</h4>
-                <p>Build a production-like SIEM lab that documents the deployment work instead of just referencing tools.</p>
+                <h4>Task</h4>
+                <p>Bring up a Wazuh indexer and dashboard on separate Ubuntu 24.04 VMs and document the configuration steps.</p>
               </div>
               <div>
-                <h4>What I built</h4>
-                <p>Two Ubuntu 24.04 VMs on VMware Workstation: Wazuh Indexer on `192.168.71.100` and Wazuh Dashboard on `192.168.71.103`, both configured with TLS and documented step-by-step.</p>
+                <h4>Built</h4>
+                <p>Two VMware Workstation VMs: indexer on <code>192.168.71.100</code> and dashboard on <code>192.168.71.103</code>, with TLS, JVM sizing, and service configuration notes.</p>
               </div>
               <div>
-                <h4>Evidence</h4>
-                <p>Documented VM specs, certificate workflow, config corrections, service verification, and dashboard access notes across the public repo.</p>
+                <h4>Artifacts</h4>
+                <p>Public repo with deployment guides, config excerpts, certificate steps, service checks, and dashboard access notes.</p>
               </div>
               <div>
-                <h4>What's complete</h4>
-                <p>Indexer deployment, dashboard deployment, certificate regeneration workflow, and verification of the running dashboard entry point.</p>
+                <h4>Status</h4>
+                <p>Indexer and dashboard are up; manager or server layer, agents, and alert flow are not in this public build.</p>
               </div>
               <div>
-                <h4>What's next</h4>
-                <p>Graylog integration, event ingestion pipeline, and replacing the current single-node learning setup with a more resilient design.</p>
+                <h4>Next work</h4>
+                <p>Complete the missing server and agent path, then expand beyond the current single-node setup.</p>
               </div>
             </div>
           </article>
@@ -132,7 +161,7 @@
             <div class="project-card__header">
               <div>
                 <p class="card-meta">Security data analysis</p>
-                <h3>Malicious URL Detection</h3>
+                <h3>Malicious URL Classification</h3>
               </div>
               <div class="card-actions">
                 <a class="button button--ghost" href="./projects/malicious-url-detection/index.html">Case study</a>
@@ -141,24 +170,24 @@
             </div>
             <div class="project-card__body">
               <div>
-                <h4>Problem</h4>
-                <p>Test how far lexical URL features can go before richer signals such as DNS, WHOIS, or page content become necessary.</p>
+                <h4>Task</h4>
+                <p>Measure what lexical URL features can separate before adding DNS, WHOIS, content, or temporal signals.</p>
               </div>
               <div>
-                <h4>What I built</h4>
-                <p>Reproducible cleaning, feature engineering, binary and multiclass modeling, and saved evaluation outputs from a Kaggle malicious URLs dataset.</p>
+                <h4>Built</h4>
+                <p>Cleaning, feature engineering, binary and multiclass modeling, and saved evaluation outputs from a public Kaggle dataset.</p>
               </div>
               <div>
-                <h4>Evidence</h4>
-                <p>651,191 raw rows loaded, 640,792 kept after cleaning, 80,000-row modeling sample, and test metrics saved to CSV for binary and multiclass runs.</p>
+                <h4>Artifacts</h4>
+                <p>651,191 rows loaded, 640,792 kept after cleaning, an 80,000-row modeling sample, and CSV outputs for binary and multiclass runs.</p>
               </div>
               <div>
-                <h4>What's complete</h4>
-                <p>Exploration, modeling, class-by-class evaluation, and repo-level reproducibility details including hash and run metadata.</p>
+                <h4>Status</h4>
+                <p>Baseline, logistic regression, and k-NN results are saved with run metadata and class-level evaluation.</p>
               </div>
               <div>
-                <h4>What's next</h4>
-                <p>Add richer signals beyond lexical features and test how much the current conclusions hold under a more realistic feature set.</p>
+                <h4>Next work</h4>
+                <p>Add richer signals and rerun the benchmark with a broader feature set.</p>
               </div>
             </div>
           </article>
@@ -176,117 +205,64 @@
             </div>
             <div class="project-card__body">
               <div>
-                <h4>Problem</h4>
+                <h4>Task</h4>
                 <p>Build a usable workflow for reporting and verifying crop disease alerts during a hackathon timeline.</p>
               </div>
               <div>
-                <h4>What I built</h4>
+                <h4>Built</h4>
                 <p>Worked with a teammate on a Next.js 15, TypeScript, Firebase, and Leaflet application with farmer and authority flows.</p>
               </div>
               <div>
-                <h4>Evidence</h4>
-                <p>Public repo, live Vercel deployment, and a separate project page that explains the reporting and verification flow.</p>
+                <h4>Artifacts</h4>
+                <p>Public GitHub repo and live Vercel deployment.</p>
               </div>
               <div>
-                <h4>What's complete</h4>
-                <p>Core reporting, role-based auth, map state changes, and deployment.</p>
+                <h4>Status</h4>
+                <p>Farmer reporting, authority review, authentication, map state changes, and deployment are in the live build.</p>
               </div>
               <div>
-                <h4>What's next</h4>
-                <p>Clarify ownership and trim the marketing-heavy framing in the external project materials.</p>
+                <h4>Next work</h4>
+                <p>Document individual contributions more clearly if the project stays in the portfolio.</p>
               </div>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section" id="evidence">
-        <div class="section-heading">
-          <p class="eyebrow">Evidence snapshot</p>
-          <h2>Hard signals that survive a quick skim</h2>
-        </div>
-
-        <div class="evidence-grid">
-          <article class="stat-card">
-            <span class="stat-card__value">2</span>
-            <span class="stat-card__label">Ubuntu 24.04 VMs documented for the Wazuh lab</span>
-          </article>
-          <article class="stat-card">
-            <span class="stat-card__value">640,792</span>
-            <span class="stat-card__label">cleaned URLs kept after reproducible preprocessing</span>
-          </article>
-          <article class="stat-card">
-            <span class="stat-card__value">80,000</span>
-            <span class="stat-card__label">sample size used for the supervised modeling workflow</span>
-          </article>
-          <article class="stat-card">
-            <span class="stat-card__value">0.9444</span>
-            <span class="stat-card__label">binary test accuracy from the strongest k-NN malicious URL run</span>
-          </article>
-          <article class="stat-card">
-            <span class="stat-card__value">Next.js 15</span>
-            <span class="stat-card__label">public deployment shipped for CropGuard on Vercel</span>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="experiments">
-        <div class="section-heading">
-          <p class="eyebrow">Current experiments</p>
-          <h2>Exploratory work kept separate from the main proof</h2>
-        </div>
-
-        <article class="panel note-panel">
-          <p>
-            Local LLM inference, LoRA/QLoRA reading, and evaluation design are active areas of study, but they are not
-            presented here as portfolio depth. The current public evidence is stronger in security infrastructure and
-            security data work, so that is where the portfolio stays focused.
-          </p>
-          <ul class="bullet-list">
-            <li>Running local models through Ollama to understand hardware behavior and practical constraints.</li>
-            <li>Comparing when fine-tuning changes behavior meaningfully versus when retrieval or guardrails are the better fit.</li>
-            <li>Keeping this section intentionally short until there is project-level evidence worth defending.</li>
-          </ul>
-        </article>
-      </section>
-
       <section class="section" id="contact">
         <div class="section-heading">
           <p class="eyebrow">Contact</p>
-          <h2>Best paths for a hiring conversation</h2>
-          <p>
-            If you want the fastest evaluation path, open the resume first, then the Wazuh or malicious URL case study,
-            then reach out directly.
-          </p>
+          <h2>Contact and links</h2>
+          <p>Resume, email, GitHub, and LinkedIn.</p>
         </div>
 
         <div class="contact-grid">
           <a class="contact-card" href="./assets/Nimish-Sood-Resume.pdf" target="_blank" rel="noopener noreferrer">
             <span class="card-meta">Resume PDF</span>
             <strong>Nimish-Sood-Resume.pdf</strong>
-            <span>Short summary, project highlights, contact details</span>
+            <span>One-page summary with experience, projects, and contact details</span>
           </a>
           <a class="contact-card" href="mailto:vasusood889@gmail.com">
             <span class="card-meta">Email</span>
             <strong>vasusood889@gmail.com</strong>
-            <span>Best route for co-op, internship, and direct outreach</span>
+            <span>Direct contact</span>
           </a>
           <a class="contact-card" href="https://github.com/NimishSood" target="_blank" rel="noopener noreferrer">
             <span class="card-meta">GitHub</span>
             <strong>github.com/NimishSood</strong>
-            <span>Source repos, READMEs, results, and deployment documentation</span>
+            <span>Public repos, READMEs, and result files</span>
           </a>
           <a class="contact-card" href="https://www.linkedin.com/in/nimishsood/" target="_blank" rel="noopener noreferrer">
             <span class="card-meta">LinkedIn</span>
             <strong>linkedin.com/in/nimishsood</strong>
-            <span>Professional profile and networking contact point</span>
+            <span>Professional profile</span>
           </a>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>Nimish Sood · Security-first portfolio · UPEI Computer Science (Co-op) · Expected 2027</p>
+      <p>Nimish Sood · IT Support Specialist at AKA Energy Systems · UPEI Computer Science (Co-op) · Expected 2027</p>
     </footer>
   </div>
 </body>

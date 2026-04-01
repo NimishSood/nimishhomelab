@@ -1,4 +1,5 @@
 %PDF-1.4
+%‚„œ”
 1 0 obj
 << /Type /Catalog /Pages 2 0 R >>
 endobj
@@ -6,82 +7,312 @@ endobj
 << /Type /Pages /Count 1 /Kids [3 0 R] >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 4 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
 endobj
 4 0 obj
-<< /Length 1473 >>
-stream
-BT
-/F1 22 Tf
-50 780 Td
-(Nimish Sood) Tj
-0 -26 Td
-/F1 12 Tf
-(UPEI Computer Science \(Co-op\) | Expected 2027) Tj
-0 -16 Td
-(Security-first portfolio | Building toward SOC and security engineering roles) Tj
-0 -16 Td
-() Tj
-0 -16 Td
-(Email: vasusood889@gmail.com) Tj
-0 -16 Td
-(GitHub: github.com/NimishSood) Tj
-0 -16 Td
-(LinkedIn: linkedin.com/in/nimishsood) Tj
-0 -16 Td
-(Portfolio: nimishhomelab.com) Tj
-0 -16 Td
-() Tj
-0 -16 Td
-(Summary) Tj
-0 -16 Td
-(Computer science student focused on security infrastructure, log analysis, and) Tj
-0 -16 Td
-(reproducible security data work. Strongest public proof is a Wazuh homelab,) Tj
-0 -16 Td
-(malicious URL detection analysis, and a deployed Next.js project.) Tj
-0 -16 Td
-() Tj
-0 -16 Td
-(Selected Projects) Tj
-0 -16 Td
-(Wazuh Homelab: Two Ubuntu 24.04 VMs on VMware Workstation for Wazuh Indexer) Tj
-0 -16 Td
-(and Wazuh Dashboard, with TLS workflow, JVM tuning, and verification notes.) Tj
-0 -16 Td
-(Malicious URL Detection: 651,191 rows loaded, 640,792 kept after cleaning,) Tj
-0 -16 Td
-(80,000-row modeling sample, saved binary and multiclass metrics.) Tj
-0 -16 Td
-(CropGuard: Next.js 15, TypeScript, Firebase, and Leaflet project shipped with) Tj
-0 -16 Td
-(a teammate and deployed publicly on Vercel.) Tj
-0 -16 Td
-() Tj
-0 -16 Td
-(Current Focus) Tj
-0 -16 Td
-(SOC analyst, detection engineering, and security engineering opportunities.) Tj
-0 -16 Td
-(AI/LLM work remains exploratory and is not the main portfolio claim.) Tj
-0 -16 Td
-ET
-
-endstream
-endobj
-5 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 5439 >>
+stream
+BT
+/F2 24.00 Tf
+0.090 0.180 0.310 rg
+1 0 0 1 54.00 752.00 Tm
+(Nimish Sood) Tj
+ET
+BT
+/F1 11.00 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 728.00 Tm
+(IT Support Specialist | Security Infrastructure | UPEI Computer Science \(Co-op\), Expected 2027) Tj
+ET
+BT
+/F1 9.40 Tf
+0.340 0.380 0.430 rg
+1 0 0 1 54.00 712.00 Tm
+(Prince Edward Island, Canada | vasusood889@gmail.com | github.com/NimishSood) Tj
+ET
+BT
+/F1 9.40 Tf
+0.340 0.380 0.430 rg
+1 0 0 1 54.00 700.00 Tm
+(linkedin.com/in/nimishsood | nimishhomelab.com) Tj
+ET
+1.00 w
+0.820 0.840 0.870 RG
+54.00 690.00 m
+558.00 690.00 l
+S
+BT
+/F2 10.50 Tf
+0.090 0.180 0.310 rg
+1 0 0 1 54.00 666.00 Tm
+(SUMMARY) Tj
+ET
+0.80 w
+0.820 0.840 0.870 RG
+140.00 670.00 m
+558.00 670.00 l
+S
+BT
+/F1 10.50 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 646.00 Tm
+(IT Support Specialist with hands-on experience across identity, endpoint, virtualization, and) Tj
+ET
+BT
+/F1 10.50 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 631.83 Tm
+(internal security operations. Complements professional infrastructure work with public) Tj
+ET
+BT
+/F1 10.50 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 617.65 Tm
+(security projects in Wazuh deployment and malicious URL classification.) Tj
+ET
+BT
+/F2 10.50 Tf
+0.090 0.180 0.310 rg
+1 0 0 1 54.00 595.48 Tm
+(EXPERIENCE) Tj
+ET
+0.80 w
+0.820 0.840 0.870 RG
+140.00 599.48 m
+558.00 599.48 l
+S
+BT
+/F2 11.40 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 575.48 Tm
+(AKA Energy Systems | IT Support Specialist) Tj
+ET
+BT
+/F1 9.40 Tf
+0.340 0.380 0.430 rg
+1 0 0 1 54.00 561.48 Tm
+(Contract Full-time | Jul 2025 - Present | Prince Edward Island, Canada | On-site) Tj
+ET
+BT
+/F1 10.20 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 543.48 Tm
+(-) Tj
+ET
+BT
+/F1 10.20 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 65.00 543.48 Tm
+(Supported core IT infrastructure and security operations across virtualized, server, identity,) Tj
+ET
+BT
+/F1 10.20 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 65.00 530.01 Tm
+(endpoint, and network environments.) Tj
+ET
+BT
+/F1 10.20 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 512.55 Tm
+(-) Tj
+ET
+BT
+/F1 10.20 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 65.00 512.55 Tm
+(Implemented Microsoft Entra ID Conditional Access and built internal GoPhish campaigns for) Tj
+ET
+BT
+/F1 10.20 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 65.00 499.08 Tm
+(access control hardening and security awareness testing.) Tj
+ET
+BT
+/F1 10.20 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 481.62 Tm
+(-) Tj
+ET
+BT
+/F1 10.20 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 65.00 481.62 Tm
+(Provisioned and managed Windows and Ubuntu virtual machines in Proxmox with static IP) Tj
+ET
+BT
+/F1 10.20 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 65.00 468.16 Tm
+(assignment, VLAN-aware configuration, and infrastructure support for internal services.) Tj
+ET
+BT
+/F1 10.20 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 450.69 Tm
+(-) Tj
+ET
+BT
+/F1 10.20 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 65.00 450.69 Tm
+(Improved endpoint operations with ManageEngine Desktop Central for patching, software) Tj
+ET
+BT
+/F1 10.20 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 65.00 437.23 Tm
+(deployment, inventory management, and remote administration.) Tj
+ET
+BT
+/F1 10.20 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 419.76 Tm
+(-) Tj
+ET
+BT
+/F1 10.20 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 65.00 419.76 Tm
+(Contributed to early planning for a Wazuh-based SIEM deployment to improve centralized) Tj
+ET
+BT
+/F1 10.20 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 65.00 406.30 Tm
+(logging, monitoring, and future detection capability.) Tj
+ET
+BT
+/F2 10.50 Tf
+0.090 0.180 0.310 rg
+1 0 0 1 54.00 384.84 Tm
+(PROJECTS) Tj
+ET
+0.80 w
+0.820 0.840 0.870 RG
+140.00 388.84 m
+558.00 388.84 l
+S
+BT
+/F2 11.10 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 364.84 Tm
+(Wazuh Stack Bring-Up) Tj
+ET
+BT
+/F1 10.15 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 350.84 Tm
+(-) Tj
+ET
+BT
+/F1 10.15 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 65.00 350.84 Tm
+(Deployed Wazuh indexer and dashboard on separate Ubuntu 24.04 VMs in VMware Workstation with) Tj
+ET
+BT
+/F1 10.15 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 65.00 337.44 Tm
+(TLS, JVM sizing, configuration notes, and documented verification steps.) Tj
+ET
+BT
+/F2 11.10 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 318.04 Tm
+(Malicious URL Classification) Tj
+ET
+BT
+/F1 10.15 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 304.04 Tm
+(-) Tj
+ET
+BT
+/F1 10.15 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 65.00 304.04 Tm
+(Built a lexical-feature benchmark with 651,191 source rows, 640,792 cleaned records, an) Tj
+ET
+BT
+/F1 10.15 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 65.00 290.64 Tm
+(80,000-row modeling sample, and saved binary and multiclass evaluation outputs.) Tj
+ET
+BT
+/F2 10.50 Tf
+0.090 0.180 0.310 rg
+1 0 0 1 54.00 271.24 Tm
+(EDUCATION) Tj
+ET
+0.80 w
+0.820 0.840 0.870 RG
+140.00 275.24 m
+558.00 275.24 l
+S
+BT
+/F2 11.20 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 251.24 Tm
+(University of Prince Edward Island) Tj
+ET
+BT
+/F1 10.20 Tf
+0.340 0.380 0.430 rg
+1 0 0 1 54.00 237.24 Tm
+(Bachelor of Science in Computer Science \(Co-op\) | Expected 2027) Tj
+ET
+BT
+/F2 10.50 Tf
+0.090 0.180 0.310 rg
+1 0 0 1 54.00 211.24 Tm
+(TECHNICAL SKILLS) Tj
+ET
+0.80 w
+0.820 0.840 0.870 RG
+140.00 215.24 m
+558.00 215.24 l
+S
+BT
+/F1 10.10 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 191.24 Tm
+(Security / Identity: Microsoft Entra ID, Conditional Access, GoPhish, Wazuh, Pi-hole) Tj
+ET
+BT
+/F1 10.10 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 174.61 Tm
+(Infrastructure: Proxmox VE, VMware Workstation, Windows, Ubuntu, VLAN-aware networking) Tj
+ET
+BT
+/F1 10.10 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 157.97 Tm
+(Endpoint / Development: ManageEngine Desktop Central, Python, TypeScript, Git, Next.js, Firebase) Tj
+ET
+endstream
+endobj
 xref
-0 6
+0 7
 0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000115 00000 n 
-0000000241 00000 n 
-0000001766 00000 n 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000257 00000 n 
+0000000327 00000 n 
+0000000402 00000 n 
 trailer
-<< /Size 6 /Root 1 0 R >>
+<< /Size 7 /Root 1 0 R >>
 startxref
-1836
+5893
 %%EOF
