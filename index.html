@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Nimish Sood is a UPEI computer science student and IT Support Specialist at AKA Energy Systems. Public work includes a Wazuh stack bring-up, malicious URL classification, and shipped Next.js software."
+    content="Nimish Sood is a UPEI computer science student and IT Support Specialist at AKA Energy Systems. Public work includes a SIEM HomeLab with Wazuh and Graylog, malicious URL classification, and shipped Next.js software."
   />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#111318" />
   <meta property="og:title" content="Nimish Sood | Security Engineering Portfolio" />
   <meta
     property="og:description"
-    content="IT support and security-focused portfolio with professional infrastructure work, a Wazuh stack bring-up, malicious URL classification, and shipped software."
+    content="IT support and security-focused portfolio with professional infrastructure work, a SIEM HomeLab with Wazuh and Graylog, malicious URL classification, and shipped software."
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nimishhomelab.com/" />
@@ -47,8 +47,9 @@
           <h1>Nimish Sood</h1>
           <p class="hero__summary">
             IT Support Specialist at AKA Energy Systems with hands-on work across identity, endpoint, virtualization,
-            and internal security operations. Public work includes a documented two-VM Wazuh deployment on Ubuntu
-            24.04, a malicious URL classification benchmark with saved metrics, and a deployed Next.js product build.
+            and internal security operations. Public work includes a documented three-VM SIEM HomeLab with Wazuh
+            Indexer, Wazuh Dashboard, and Graylog Server on Ubuntu 24.04, a malicious URL classification benchmark
+            with saved metrics, and a deployed Next.js product build.
           </p>
           <div class="hero__actions">
             <a class="button button--primary" href="./assets/Nimish-Sood-Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
@@ -72,7 +73,7 @@
             </div>
             <div>
               <dt>Public work</dt>
-              <dd>Wazuh deployment notes, saved model metrics, public repos, and live deployment links</dd>
+              <dd>SIEM HomeLab deployment notes, saved model metrics, public repos, and live deployment links</dd>
             </div>
             <div>
               <dt>Outreach</dt>
@@ -127,7 +128,7 @@
             <div class="project-card__header">
               <div>
                 <p class="card-meta">Security infrastructure</p>
-                <h3>Wazuh Stack Bring-Up</h3>
+                <h3>SIEM HomeLab: Wazuh + Graylog</h3>
               </div>
               <div class="card-actions">
                 <a class="button button--ghost" href="./projects/wazuh/index.html">Case study</a>
@@ -137,23 +138,23 @@
             <div class="project-card__body">
               <div>
                 <h4>Task</h4>
-                <p>Bring up a Wazuh indexer and dashboard on separate Ubuntu 24.04 VMs and document the configuration steps.</p>
+                <p>Build a staged SIEM HomeLab that documents the Wazuh Indexer, Wazuh Dashboard, and Graylog Server deployment path.</p>
               </div>
               <div>
                 <h4>Built</h4>
-                <p>Two VMware Workstation VMs: indexer on <code>192.168.71.100</code> and dashboard on <code>192.168.71.103</code>, with TLS, JVM sizing, and service configuration notes.</p>
+                <p>Three VMware Workstation VMs: indexer on <code>192.168.71.100</code>, Graylog on <code>192.168.71.101:9000</code>, and dashboard on <code>192.168.71.103</code>.</p>
               </div>
               <div>
                 <h4>Artifacts</h4>
-                <p>Public repo with deployment guides, config excerpts, certificate steps, service checks, and dashboard access notes.</p>
+                <p>Public guides covering TLS setup, JVM sizing, Graylog 7.0.5, MongoDB 8.0, Java 21, truststore setup, backend user creation, and browser verification.</p>
               </div>
               <div>
                 <h4>Status</h4>
-                <p>Indexer and dashboard are up; manager or server layer, agents, and alert flow are not in this public build.</p>
+                <p>Indexer, dashboard, and Graylog Server are documented as complete; Wazuh Manager, agents, alert flow, and full pipeline ingestion are not deployed yet.</p>
               </div>
               <div>
                 <h4>Next work</h4>
-                <p>Complete the missing server and agent path, then expand beyond the current single-node setup.</p>
+                <p>Deploy the Wazuh Manager, configure agents and <code>alerts.json</code> forwarding, then build Graylog inputs, streams, pipelines, and retention policy.</p>
               </div>
             </div>
           </article>

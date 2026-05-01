@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Case study for Nimish Sood's Wazuh stack bring-up: indexer and dashboard on separate Ubuntu VMs with TLS, configuration notes, and current limitations."
+    content="Case study for Nimish Sood's SIEM HomeLab: Wazuh Indexer, Wazuh Dashboard, and Graylog Server deployed on Ubuntu VMs with TLS, backend integration work, and current pipeline limitations."
   />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#111318" />
-  <meta property="og:title" content="Wazuh Stack Bring-Up | Nimish Sood" />
+  <meta property="og:title" content="SIEM HomeLab: Wazuh + Graylog | Nimish Sood" />
   <meta
     property="og:description"
-    content="Two-VM Wazuh bring-up with documented TLS setup, configuration corrections, and verification notes."
+    content="Three-part SIEM HomeLab case study covering Wazuh Indexer, Wazuh Dashboard, and Graylog Server deployment with documented verification and remaining pipeline work."
   />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://nimishhomelab.com/projects/wazuh/" />
@@ -24,7 +24,7 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="../../assets/site.css" />
-  <title>Wazuh Stack Bring-Up | Nimish Sood</title>
+  <title>SIEM HomeLab: Wazuh + Graylog | Nimish Sood</title>
 </head>
 <body>
   <div class="site-shell">
@@ -42,37 +42,40 @@
 
     <main class="case-shell">
       <section class="case-hero">
-        <p class="breadcrumb"><a href="../../index.html">Back to portfolio</a> / Wazuh stack bring-up</p>
+        <p class="breadcrumb"><a href="../../index.html">Back to portfolio</a> / SIEM HomeLab</p>
         <p class="eyebrow">Security infrastructure case study</p>
-        <h1>Wazuh Stack Bring-Up</h1>
+        <h1>SIEM HomeLab:<br />Wazuh + Graylog</h1>
         <p>
-          Current public scope: a Wazuh Indexer on one Ubuntu 24.04.4 LTS VM and a Wazuh Dashboard on a second VM in
-          VMware Workstation, with TLS, JVM sizing, configuration changes, and verification notes documented in the
-          repo. The manager or server layer, agents, and alert pipeline are not deployed yet.
+          Current public scope: a staged SIEM HomeLab with a Wazuh Indexer, Wazuh Dashboard, and Graylog Server on
+          separate Ubuntu Server 24.04.4 LTS VMs in VMware Workstation. The repository documents TLS setup,
+          single-node indexer tuning, dashboard deployment, Graylog 7.0.5 with MongoDB 8.0 and Java 21, truststore
+          configuration for the Wazuh Indexer, and browser verification. The Wazuh Manager, agents, Graylog inputs,
+          and end-to-end alert pipeline are still planned.
         </p>
         <div class="action-row">
           <a class="button button--primary" href="https://github.com/NimishSood/siem-homelab-wazuh" target="_blank" rel="noopener noreferrer">Repository</a>
           <a class="button button--ghost" href="https://github.com/NimishSood/siem-homelab-wazuh/blob/main/docs/part1-wazuh-indexer/wazuh-indexer-deployment.md" target="_blank" rel="noopener noreferrer">Indexer guide</a>
           <a class="button button--ghost" href="https://github.com/NimishSood/siem-homelab-wazuh/blob/main/docs/part2-wazuh-dashboard/wazuh-dashboard-deployment.md" target="_blank" rel="noopener noreferrer">Dashboard guide</a>
+          <a class="button button--ghost" href="https://github.com/NimishSood/siem-homelab-wazuh/blob/main/docs/part3-graylog-server/graylog-server-deployment.md" target="_blank" rel="noopener noreferrer">Graylog guide</a>
         </div>
       </section>
 
       <section class="evidence-strip" aria-label="Key evidence">
         <article class="evidence-chip">
-          <strong>2 VMs</strong>
-          <span>Dedicated Ubuntu 24.04.4 LTS machines for indexer and dashboard.</span>
+          <strong>3 VMs</strong>
+          <span>Dedicated Ubuntu 24.04.4 LTS machines for indexer, dashboard, and Graylog.</span>
         </article>
         <article class="evidence-chip">
           <strong>192.168.71.100</strong>
-          <span>Static IP assigned to the Wazuh Indexer on the VMware NAT network.</span>
+          <span>Static IP for the single-node Wazuh Indexer and OpenSearch-compatible backend.</span>
         </article>
         <article class="evidence-chip">
           <strong>192.168.71.103</strong>
-          <span>Static IP assigned to the Wazuh Dashboard with browser access over HTTPS.</span>
+          <span>Static IP for the Wazuh Dashboard with browser access over HTTPS.</span>
         </article>
         <article class="evidence-chip">
-          <strong>TLS + tuning</strong>
-          <span>Certificate workflow, memory locking, JVM sizing, and service verification are documented.</span>
+          <strong>192.168.71.101:9000</strong>
+          <span>Graylog Server web interface verified after MongoDB, Java, TLS, and backend setup.</span>
         </article>
       </section>
 
@@ -82,23 +85,23 @@
           <dl class="detail-list">
             <div>
               <dt>Task</dt>
-              <dd>Bring up a Wazuh indexer and dashboard environment and record the deployment work in a public repo.</dd>
+              <dd>Build and document the first three stages of a SIEM HomeLab using Wazuh and Graylog components.</dd>
             </div>
             <div>
               <dt>Environment</dt>
-              <dd>A single-node Wazuh Indexer VM plus a separate Wazuh Dashboard VM, both configured on Ubuntu Server 24.04.4 LTS in VMware Workstation.</dd>
-            </div>
-            <div>
-              <dt>Artifacts</dt>
-              <dd>Public deployment guides, VM sizing, port requirements, TLS generation steps, verification commands, and correction notes in the repo.</dd>
+              <dd>VMware Workstation NAT network on <code>192.168.71.0/24</code> with separate Ubuntu Server VMs for the Wazuh Indexer, Wazuh Dashboard, and Graylog Server.</dd>
             </div>
             <div>
               <dt>Completed</dt>
-              <dd>Indexer deployment, dashboard deployment, certificate regeneration, and documented verification of active services and accessible dashboard login.</dd>
+              <dd>Indexer deployment, Dashboard deployment, Graylog Server deployment, TLS certificate handling, backend truststore setup, service verification, and browser access checks.</dd>
+            </div>
+            <div>
+              <dt>Artifacts</dt>
+              <dd>Public deployment guides for Parts 1-3, architecture diagrams, screenshot-backed troubleshooting notes, and written verification steps in the GitHub repo.</dd>
             </div>
             <div>
               <dt>Not yet implemented</dt>
-              <dd>Manager or server layer, agents, alert flow, and a more resilient design than the current single-node indexer setup.</dd>
+              <dd>Wazuh Manager, deployed agents, <code>alerts.json</code> forwarding, Graylog inputs, streams, pipelines, retention policy, Grafana, and full end-to-end event flow.</dd>
             </div>
           </dl>
         </article>
@@ -107,16 +110,20 @@
           <h3>Verification and issues</h3>
           <div class="status-list">
             <div class="status-item">
-              <strong>Certificate regeneration</strong>
-              <p>The dashboard node was missing from the first certificate config, so the certificates were regenerated with the correct hosts.</p>
+              <strong>Graylog server deployment</strong>
+              <p>Part 3 records Graylog 7.0.5 deployed on a dedicated VM with MongoDB 8.0, Java 21, generated secrets, and successful web UI login.</p>
             </div>
             <div class="status-item">
-              <strong>Service checks</strong>
-              <p>The repo records cluster initialization, service status checks, and dashboard access over HTTPS.</p>
+              <strong>TLS truststore setup</strong>
+              <p>The Wazuh root CA was imported into a Graylog-specific Java truststore so Graylog can connect to the Wazuh Indexer over HTTPS.</p>
+            </div>
+            <div class="status-item">
+              <strong>Backend compatibility correction</strong>
+              <p>Graylog initially saw the backend as Elasticsearch 7.10.2; disabling <code>compatibility.override_main_response_version</code> allowed OpenSearch-compatible detection.</p>
             </div>
             <div class="status-item">
               <strong>Current limit</strong>
-              <p>Current build stops at indexer plus dashboard; there is no manager or server layer, agent path, or high-availability cluster.</p>
+              <p>The stack is prepared for ingestion, but events are not flowing yet because the Wazuh Manager, agents, and Graylog processing pipeline are not deployed.</p>
             </div>
           </div>
         </article>
@@ -126,56 +133,64 @@
         <article class="figure-card">
           <h3>Documented architecture</h3>
           <p>
-            The diagram reflects the current dashboard and indexer VMs plus the planned additional node referenced in
-            the repo.
+            The current public build has three completed VMs. The Wazuh Manager and event-forwarding path are shown as
+            planned work because they are required before alerts can move through Graylog into the Indexer.
           </p>
           <div class="diagram">
-            <svg viewBox="0 0 860 340" role="img" aria-label="Wazuh homelab architecture diagram">
+            <svg viewBox="0 0 920 380" role="img" aria-label="SIEM HomeLab architecture diagram with Wazuh Indexer, Wazuh Dashboard, Graylog Server, and planned Wazuh Manager">
               <defs>
                 <marker id="arrowhead" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
                   <polygon points="0 0, 9 3.5, 0 7" fill="#8a95a6"></polygon>
                 </marker>
               </defs>
-              <rect x="40" y="110" width="170" height="96" rx="12" class="node" />
-              <text x="62" y="142" class="label-strong">Browser / Reviewer</text>
-              <text x="62" y="168">HTTPS</text>
-              <text x="62" y="192">Port 443</text>
+              <rect x="36" y="130" width="168" height="112" rx="12" class="node" />
+              <text x="58" y="164" class="label-strong">Browser / Reviewer</text>
+              <text x="58" y="192">Dashboard HTTPS 443</text>
+              <text x="58" y="216">Graylog HTTP 9000</text>
 
-              <rect x="290" y="54" width="238" height="112" rx="14" class="node-alt" />
-              <text x="314" y="86" class="label-strong">wazuh-dashboard</text>
-              <text x="314" y="112">Ubuntu 24.04.4 LTS</text>
-              <text x="314" y="138">192.168.71.103</text>
-              <text x="314" y="164">2 vCPU / 2 GB / 40 GB</text>
+              <rect x="278" y="44" width="242" height="112" rx="14" class="node-alt" />
+              <text x="302" y="76" class="label-strong">wazuh-dashboard</text>
+              <text x="302" y="102">Ubuntu 24.04.4 LTS</text>
+              <text x="302" y="128">192.168.71.103</text>
+              <text x="302" y="150">2 vCPU / 2 GB / 40 GB</text>
 
-              <rect x="290" y="204" width="238" height="112" rx="14" class="node-alt" />
-              <text x="314" y="236" class="label-strong">wazuh-indexer</text>
-              <text x="314" y="262">Ubuntu 24.04.4 LTS</text>
-              <text x="314" y="288">192.168.71.100</text>
-              <text x="314" y="314">4 vCPU / 8 GB / 100 GB</text>
+              <rect x="278" y="224" width="242" height="112" rx="14" class="node-alt" />
+              <text x="302" y="256" class="label-strong">graylog-server</text>
+              <text x="302" y="282">Graylog 7.0.5 / MongoDB 8.0</text>
+              <text x="302" y="308">192.168.71.101:9000</text>
+              <text x="302" y="330">4 vCPU / 6 GB / 80 GB</text>
 
-              <rect x="610" y="124" width="210" height="92" rx="14" class="future" />
-              <text x="634" y="156" class="label-strong">Future Graylog / server</text>
-              <text x="634" y="182">Planned certificate target</text>
-              <text x="634" y="206">Not deployed yet</text>
+              <rect x="628" y="44" width="242" height="112" rx="14" class="node-alt" />
+              <text x="652" y="76" class="label-strong">wazuh-indexer</text>
+              <text x="652" y="102">OpenSearch backend</text>
+              <text x="652" y="128">192.168.71.100:9200</text>
+              <text x="652" y="150">4 vCPU / 8 GB / 100 GB</text>
 
-              <path d="M210 158 H290" class="arrow" />
-              <path d="M409 166 V204" class="arrow" />
-              <path d="M528 110 H610" class="arrow" />
-              <path d="M528 260 H610" class="arrow" />
+              <rect x="628" y="234" width="242" height="92" rx="14" class="future" />
+              <text x="652" y="266" class="label-strong">Future Wazuh Manager</text>
+              <text x="652" y="292">agents + alerts.json</text>
+              <text x="652" y="314">forwarding to Graylog</text>
+
+              <path d="M204 164 H278" class="arrow" />
+              <path d="M204 216 H278" class="arrow" />
+              <path d="M520 100 H628" class="arrow" />
+              <path d="M520 280 C570 280 578 156 628 130" class="arrow" />
+              <path d="M628 280 H520" class="arrow" />
             </svg>
           </div>
-          <p class="caption">Current network: VMware NAT on <code>192.168.71.0/24</code>. Ports called out in the repo: <code>443</code> for the dashboard and <code>9200</code> for Dashboard to Indexer communication.</p>
+          <p class="caption">Current network: VMware NAT on <code>192.168.71.0/24</code>. Publicly documented access points include the Wazuh Dashboard at <code>https://192.168.71.103</code>, Graylog at <code>http://192.168.71.101:9000</code>, and Indexer backend access on <code>9200</code>.</p>
         </article>
 
         <article class="figure-card">
           <h3>Configuration artifact</h3>
-          <p>This excerpt reflects the values documented in the public deployment guides for the single-node indexer setup and dashboard connection.</p>
+          <p>This excerpt reflects values documented in the public deployment guides, not local config snapshots.</p>
           <div class="code-block">
             <pre><code># Wazuh Indexer
 network.host: 192.168.71.100
 node.name: wazuh-indexer
 cluster.initial_master_nodes: ["wazuh-indexer"]
 bootstrap.memory_lock: true
+# compatibility.override_main_response_version: true
 
 # JVM sizing
 -Xms4g
@@ -184,10 +199,14 @@ bootstrap.memory_lock: true
 # Wazuh Dashboard
 server.host: 192.168.71.103
 opensearch.hosts: ["https://wazuh-indexer:9200"]
-server.ssl.certificate: /etc/wazuh-dashboard/certs/wazuh-dashboard.pem
-server.ssl.key: /etc/wazuh-dashboard/certs/wazuh-dashboard-key.pem</code></pre>
+
+# Graylog Server
+http_bind_address = 0.0.0.0:9000
+elasticsearch_hosts = https://graylog:PASSWORD@192.168.71.100:9200
+GRAYLOG_SERVER_JAVA_OPTS includes:
+-Djavax.net.ssl.trustStore=/etc/graylog/server/certs/cacerts</code></pre>
           </div>
-          <p class="table-note">The repo also records the CN mismatch correction in <code>opensearch.yml</code>.</p>
+          <p class="table-note">Part 3 records a TLS hostname/SAN mismatch fix by connecting Graylog to <code>192.168.71.100</code> instead of <code>wazuh-indexer</code>, plus the backend compatibility override correction.</p>
         </article>
       </section>
 
@@ -203,20 +222,24 @@ server.ssl.key: /etc/wazuh-dashboard/certs/wazuh-dashboard-key.pem</code></pre>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Cluster init</strong></td>
-                <td><code>indexer-security-init.sh</code> completed and the log reported <code>Node has been initialized</code>.</td>
+                <td><strong>Indexer</strong></td>
+                <td><code>indexer-security-init.sh</code> completed and the Wazuh Indexer service was verified active.</td>
               </tr>
               <tr>
-                <td><strong>Service state</strong></td>
-                <td><code>systemctl status wazuh-indexer</code> and <code>systemctl start wazuh-dashboard</code> are part of the written verification flow.</td>
+                <td><strong>Dashboard</strong></td>
+                <td>The Wazuh Dashboard login page was reached at <code>https://192.168.71.103</code>.</td>
               </tr>
               <tr>
-                <td><strong>Browser access</strong></td>
-                <td>The dashboard guide records access to <code>https://192.168.71.103</code> and the expected login page.</td>
+                <td><strong>MongoDB</strong></td>
+                <td>Part 3 records MongoDB 8.0 installation, service enablement, restart, and active-state verification.</td>
               </tr>
               <tr>
-                <td><strong>Expected limitation</strong></td>
-                <td>The dashboard shows a no-server warning because the manager or server layer is not deployed yet.</td>
+                <td><strong>Graylog</strong></td>
+                <td>The Graylog web UI was reached and loaded after login at <code>http://192.168.71.101:9000</code>.</td>
+              </tr>
+              <tr>
+                <td><strong>Troubleshooting</strong></td>
+                <td>Graylog backend connectivity was corrected by fixing the TLS SAN target and OpenSearch compatibility response.</td>
               </tr>
             </tbody>
           </table>
@@ -225,17 +248,18 @@ server.ssl.key: /etc/wazuh-dashboard/certs/wazuh-dashboard-key.pem</code></pre>
         <article class="callout">
           <h3>Current limitations</h3>
           <ul class="bullet-list">
-            <li>Single-node indexer means no high availability and no resilience if that VM goes down.</li>
-            <li>The manager or server layer is not deployed, so the current setup stops short of a full Wazuh workflow.</li>
-            <li>The dashboard warning about no connected server is expected until the missing layer is added.</li>
-            <li>Public artifacts currently rely on written deployment notes and configuration excerpts rather than screenshots.</li>
+            <li>The single-node Wazuh Indexer has no high availability or replica resilience.</li>
+            <li>The Graylog Server and MongoDB deployment is single-node and suitable for lab learning, not production availability.</li>
+            <li>The Wazuh Manager and agents are not deployed, so there is no live endpoint event collection yet.</li>
+            <li>Graylog inputs, streams, pipelines, forwarding behavior, and retention policy still need to be configured.</li>
+            <li>The Wazuh Dashboard no-server warning remains expected until the manager/API path is implemented.</li>
           </ul>
         </article>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>Nimish Sood · Wazuh Stack Bring-Up · <a class="inline-link" href="../../index.html">Return to portfolio</a></p>
+      <p>Nimish Sood · SIEM HomeLab: Wazuh + Graylog · <a class="inline-link" href="../../index.html">Return to portfolio</a></p>
     </footer>
   </div>
 </body>
