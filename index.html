@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Nimish Sood is a UPEI computer science student and IT Support Specialist at AKA Energy Systems. Public work includes a SIEM HomeLab with Wazuh and Graylog, malicious URL classification, and shipped Next.js software."
+    content="Nimish Sood is a UPEI computer science student and IT Support Specialist at AKA Energy Systems. Public work includes a five-part SIEM HomeLab with Wazuh and Graylog, malicious URL classification, and shipped Next.js software."
   />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#111318" />
   <meta property="og:title" content="Nimish Sood | Security Engineering Portfolio" />
   <meta
     property="og:description"
-    content="IT support and security-focused portfolio with professional infrastructure work, a SIEM HomeLab with Wazuh and Graylog, malicious URL classification, and shipped software."
+    content="IT support and security-focused portfolio with professional infrastructure work, a five-part SIEM HomeLab with Wazuh and Graylog, malicious URL classification, and shipped software."
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nimishhomelab.com/" />
@@ -47,9 +47,10 @@
           <h1>Nimish Sood</h1>
           <p class="hero__summary">
             IT Support Specialist at AKA Energy Systems with hands-on work across identity, endpoint, virtualization,
-            and internal security operations. Public work includes a documented three-VM SIEM HomeLab with Wazuh
-            Indexer, Wazuh Dashboard, and Graylog Server on Ubuntu 24.04, a malicious URL classification benchmark
-            with saved metrics, and a deployed Next.js product build.
+            and internal security operations. Public work includes a documented SIEM HomeLab with Wazuh Indexer,
+            Wazuh Dashboard, Graylog Server, Wazuh Manager, Debian and Windows agents, Sysmon, Packetbeat, and
+            Fluent Bit forwarding on a VMware Workstation lab network, plus a malicious URL classification benchmark
+            with saved metrics and a deployed Next.js product build.
           </p>
           <div class="hero__actions">
             <a class="button button--primary" href="./assets/Nimish-Sood-Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
@@ -73,7 +74,7 @@
             </div>
             <div>
               <dt>Public work</dt>
-              <dd>SIEM HomeLab deployment notes, saved model metrics, public repos, and live deployment links</dd>
+              <dd>Five-part SIEM HomeLab notes, saved model metrics, public repos, and live deployment links</dd>
             </div>
             <div>
               <dt>Outreach</dt>
@@ -137,23 +138,23 @@
             <div class="project-card__body">
               <div>
                 <h4>Task</h4>
-                <p>Build a staged SIEM HomeLab that documents the Wazuh Indexer, Wazuh Dashboard, and Graylog Server deployment path.</p>
+                <p>Build a staged SIEM HomeLab that documents the Wazuh stack, Graylog, manager forwarding, and endpoint telemetry collection.</p>
               </div>
               <div>
                 <h4>Built</h4>
-                <p>Three VMware Workstation VMs: indexer on <code>192.168.71.100</code>, Graylog on <code>192.168.71.101:9000</code>, and dashboard on <code>192.168.71.103</code>.</p>
+                <p>VMware Workstation lab with Wazuh Indexer, Dashboard, Graylog Server, Wazuh Manager at <code>192.168.71.102</code>, and Debian/Windows endpoint agents.</p>
               </div>
               <div>
                 <h4>Artifacts</h4>
-                <p>Public guides covering TLS setup, JVM sizing, Graylog 7.0.5, MongoDB 8.0, Java 21, truststore setup, backend user creation, and browser verification.</p>
+                <p>Public guides covering TLS setup, Graylog 7.0.5, MongoDB 8.0, Java 21, Fluent Bit forwarding to Graylog TCP <code>5555</code>, Sysmon, and Packetbeat.</p>
               </div>
               <div>
                 <h4>Status</h4>
-                <p>Indexer, dashboard, and Graylog Server are documented as complete; Wazuh Manager, agents, alert flow, and full pipeline ingestion are not deployed yet.</p>
+                <p>Parts 1-5 are documented as complete: Indexer, Dashboard, Graylog Server, Wazuh Manager, Debian 12 agent, Windows Server 2025 agent, Sysmon, and Packetbeat.</p>
               </div>
               <div>
                 <h4>Next work</h4>
-                <p>Deploy the Wazuh Manager, configure agents and <code>alerts.json</code> forwarding, then build Graylog inputs, streams, pipelines, and retention policy.</p>
+                <p>Build Graylog parsing and routing for raw Wazuh, Sysmon, and Packetbeat messages, then add dashboards, alerting, retention policy, and finalized pipeline artifacts.</p>
               </div>
             </div>
           </article>

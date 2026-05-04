@@ -5,7 +5,7 @@ Static portfolio site for [nimishhomelab.com](https://nimishhomelab.com/).
 The site is a small multi-page portfolio for recruiter and technical hiring-manager review. It now combines:
 
 - one current professional role summary
-- security infrastructure project work, including the SIEM HomeLab through Part 3
+- security infrastructure project work, including the SIEM HomeLab through Part 5
 - security data analysis project work
 - one shipped software example
 - supporting security training evidence from TryHackMe
@@ -15,7 +15,7 @@ There is no framework, package manager, or build step. The site is plain HTML an
 ## Current structure
 
 - `index.html` is the homepage.
-- `projects/wazuh/index.html` is the SIEM HomeLab case study for Wazuh Indexer, Wazuh Dashboard, and Graylog Server.
+- `projects/wazuh/index.html` is the SIEM HomeLab case study for Wazuh Indexer, Wazuh Dashboard, Graylog Server, Wazuh Manager, endpoint agents, Sysmon, and Packetbeat.
 - `projects/malicious-url-detection/index.html` is the malicious URL classification case study.
 - `assets/site.css` contains the shared visual system for all pages.
 - `assets/Nimish-Sood-Resume.pdf` is the public resume asset linked from the homepage.
@@ -36,7 +36,8 @@ The current homepage is organized around:
 The site avoids portfolio-strategy language and keeps the copy focused on scope, artifacts, status, and limitations.
 
 Employer work is summarized with public-safe detail only. Public projects remain separate from professional work.
-The SIEM HomeLab case study reflects the public repo through Part 3: Wazuh Indexer, Wazuh Dashboard, and Graylog Server.
+The SIEM HomeLab case study reflects the public repo through Part 5: Wazuh Indexer, Wazuh Dashboard, Graylog Server, Wazuh Manager, Debian and Windows agents, Sysmon, and Packetbeat.
+The Wazuh case study and downloadable resume are synced to the current public HomeLab repo status.
 
 ## Running locally
 

@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Case study for Nimish Sood's SIEM HomeLab: Wazuh Indexer, Wazuh Dashboard, and Graylog Server deployed on Ubuntu VMs with TLS, backend integration work, and current pipeline limitations."
+    content="Case study for Nimish Sood's SIEM HomeLab: Wazuh Indexer, Dashboard, Graylog Server, Wazuh Manager, Debian and Windows agents, Sysmon, Packetbeat, and current parsing limitations."
   />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#111318" />
   <meta property="og:title" content="SIEM HomeLab: Wazuh + Graylog | Nimish Sood" />
   <meta
     property="og:description"
-    content="Three-part SIEM HomeLab case study covering Wazuh Indexer, Wazuh Dashboard, and Graylog Server deployment with documented verification and remaining pipeline work."
+    content="Five-part SIEM HomeLab case study covering Wazuh Indexer, Dashboard, Graylog Server, Wazuh Manager, endpoint agents, Sysmon, Packetbeat, and remaining parsing work."
   />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://nimishhomelab.com/projects/wazuh/" />
@@ -46,24 +46,27 @@
         <p class="eyebrow">Security infrastructure case study</p>
         <h1>SIEM HomeLab:<br />Wazuh + Graylog</h1>
         <p>
-          Current public scope: a staged SIEM HomeLab with a Wazuh Indexer, Wazuh Dashboard, and Graylog Server on
-          separate Ubuntu Server 24.04.4 LTS VMs in VMware Workstation. The repository documents TLS setup,
-          single-node indexer tuning, dashboard deployment, Graylog 7.0.5 with MongoDB 8.0 and Java 21, truststore
-          configuration for the Wazuh Indexer, and browser verification. The Wazuh Manager, agents, Graylog inputs,
-          and end-to-end alert pipeline are still planned.
+          Current public scope: a staged SIEM HomeLab with a Wazuh Indexer, Wazuh Dashboard, Graylog Server,
+          Wazuh Manager, and initial Debian 12 and Windows Server 2025 endpoint agents in VMware Workstation. The
+          repository documents TLS setup, single-node indexer tuning, dashboard deployment, Graylog 7.0.5 with
+          MongoDB 8.0 and Java 21, manager-to-Graylog forwarding through Fluent Bit, dashboard-manager integration,
+          Sysmon on Windows, Packetbeat on Debian, and endpoint telemetry validation. Graylog parsing, routing,
+          Grafana, alerting, and finalized pipeline artifacts remain planned for later parts.
         </p>
         <div class="action-row">
           <a class="button button--primary" href="https://github.com/NimishSood/siem-homelab-wazuh" target="_blank" rel="noopener noreferrer">Repository</a>
           <a class="button button--ghost" href="https://github.com/NimishSood/siem-homelab-wazuh/blob/main/docs/part1-wazuh-indexer/wazuh-indexer-deployment.md" target="_blank" rel="noopener noreferrer">Indexer guide</a>
           <a class="button button--ghost" href="https://github.com/NimishSood/siem-homelab-wazuh/blob/main/docs/part2-wazuh-dashboard/wazuh-dashboard-deployment.md" target="_blank" rel="noopener noreferrer">Dashboard guide</a>
           <a class="button button--ghost" href="https://github.com/NimishSood/siem-homelab-wazuh/blob/main/docs/part3-graylog-server/graylog-server-deployment.md" target="_blank" rel="noopener noreferrer">Graylog guide</a>
+          <a class="button button--ghost" href="https://github.com/NimishSood/siem-homelab-wazuh/blob/main/docs/part4-wazuh-manager/wazuh-manager-deployment.md" target="_blank" rel="noopener noreferrer">Manager guide</a>
+          <a class="button button--ghost" href="https://github.com/NimishSood/siem-homelab-wazuh/blob/main/part5-wazuh-agents/wazuh-agents-deployment.md" target="_blank" rel="noopener noreferrer">Agents guide</a>
         </div>
       </section>
 
       <section class="evidence-strip" aria-label="Key evidence">
         <article class="evidence-chip">
-          <strong>3 VMs</strong>
-          <span>Dedicated Ubuntu 24.04.4 LTS machines for indexer, dashboard, and Graylog.</span>
+          <strong>6 hosts</strong>
+          <span>Dedicated VMs for Wazuh components, Graylog, Debian 12 telemetry, and Windows Server 2025 telemetry.</span>
         </article>
         <article class="evidence-chip">
           <strong>192.168.71.100</strong>
@@ -77,6 +80,10 @@
           <strong>192.168.71.101:9000</strong>
           <span>Graylog Server web interface verified after MongoDB, Java, TLS, and backend setup.</span>
         </article>
+        <article class="evidence-chip">
+          <strong>192.168.71.102</strong>
+          <span>Wazuh Manager forwards raw alerts to Graylog with Fluent Bit over TCP port <code>5555</code>.</span>
+        </article>
       </section>
 
       <section class="detail-grid">
@@ -85,23 +92,23 @@
           <dl class="detail-list">
             <div>
               <dt>Task</dt>
-              <dd>Build and document the first three stages of a SIEM HomeLab using Wazuh and Graylog components.</dd>
+              <dd>Build and document the first five stages of a SIEM HomeLab using Wazuh, Graylog, Fluent Bit, Sysmon, and Packetbeat.</dd>
             </div>
             <div>
               <dt>Environment</dt>
-              <dd>VMware Workstation NAT network on <code>192.168.71.0/24</code> with separate Ubuntu Server VMs for the Wazuh Indexer, Wazuh Dashboard, and Graylog Server.</dd>
+              <dd>VMware Workstation NAT network on <code>192.168.71.0/24</code> with separate server VMs and monitored Debian 12 and Windows Server 2025 endpoints.</dd>
             </div>
             <div>
               <dt>Completed</dt>
-              <dd>Indexer deployment, Dashboard deployment, Graylog Server deployment, TLS certificate handling, backend truststore setup, service verification, and browser access checks.</dd>
+              <dd>Indexer, Dashboard, Graylog Server, Wazuh Manager, Graylog TCP input, Fluent Bit forwarding, Linux and Windows agent groups, Debian and Windows agents, Sysmon, and Packetbeat.</dd>
             </div>
             <div>
               <dt>Artifacts</dt>
-              <dd>Public deployment guides for Parts 1-3, architecture diagrams, screenshot-backed troubleshooting notes, and written verification steps in the GitHub repo.</dd>
+              <dd>Public deployment guides for Parts 1-5, architecture diagrams, screenshot-backed troubleshooting notes, and written verification steps in the GitHub repo.</dd>
             </div>
             <div>
-              <dt>Not yet implemented</dt>
-              <dd>Wazuh Manager, deployed agents, <code>alerts.json</code> forwarding, Graylog inputs, streams, pipelines, retention policy, Grafana, and full end-to-end event flow.</dd>
+              <dt>Still planned</dt>
+              <dd>Graylog parsing, streams, routing, retention policy, Grafana, alerting, downstream dashboards, and finalized pipeline artifacts.</dd>
             </div>
           </dl>
         </article>
@@ -111,19 +118,19 @@
           <div class="status-list">
             <div class="status-item">
               <strong>Graylog server deployment</strong>
-              <p>Part 3 records Graylog 7.0.5 deployed on a dedicated VM with MongoDB 8.0, Java 21, generated secrets, and successful web UI login.</p>
+              <p>Graylog 7.0.5 is deployed on a dedicated VM with MongoDB 8.0, Java 21, generated secrets, backend truststore setup, and successful web UI login.</p>
             </div>
             <div class="status-item">
-              <strong>TLS truststore setup</strong>
-              <p>The Wazuh root CA was imported into a Graylog-specific Java truststore so Graylog can connect to the Wazuh Indexer over HTTPS.</p>
+              <strong>Manager to Graylog forwarding</strong>
+              <p>A Raw/Plaintext TCP input on Graylog listens on port <code>5555</code>, and Fluent Bit forwards Wazuh Manager alert output from <code>alerts.json</code>.</p>
             </div>
             <div class="status-item">
-              <strong>Backend compatibility correction</strong>
-              <p>Graylog initially saw the backend as Elasticsearch 7.10.2; disabling <code>compatibility.override_main_response_version</code> allowed OpenSearch-compatible detection.</p>
+              <strong>Endpoint telemetry</strong>
+              <p>Debian 12 and Windows Server 2025 agents are onboarded, with Packetbeat adding Linux network flow records and Sysmon adding Windows endpoint telemetry.</p>
             </div>
             <div class="status-item">
               <strong>Current limit</strong>
-              <p>The stack is prepared for ingestion, but events are not flowing yet because the Wazuh Manager, agents, and Graylog processing pipeline are not deployed.</p>
+              <p>Raw Wazuh, Sysmon, and Packetbeat messages are being collected, but Graylog parsing, routing, dashboards, and alerting are still future work.</p>
             </div>
           </div>
         </article>
@@ -133,52 +140,74 @@
         <article class="figure-card">
           <h3>Documented architecture</h3>
           <p>
-            The current public build has three completed VMs. The Wazuh Manager and event-forwarding path are shown as
-            planned work because they are required before alerts can move through Graylog into the Indexer.
+            The current public build has the Wazuh server components online, the Wazuh Dashboard connected to the
+            manager API, and two monitored endpoints feeding telemetry through the manager. Graylog receives raw
+            Wazuh output through Fluent Bit; parsing and downstream routing are the next phase.
           </p>
           <div class="diagram">
-            <svg viewBox="0 0 920 380" role="img" aria-label="SIEM HomeLab architecture diagram with Wazuh Indexer, Wazuh Dashboard, Graylog Server, and planned Wazuh Manager">
+            <svg viewBox="0 0 1060 560" role="img" aria-label="SIEM HomeLab architecture diagram with Wazuh Indexer, Wazuh Dashboard, Graylog Server, Wazuh Manager, Debian endpoint, and Windows endpoint">
               <defs>
                 <marker id="arrowhead" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
                   <polygon points="0 0, 9 3.5, 0 7" fill="#8a95a6"></polygon>
                 </marker>
               </defs>
-              <rect x="36" y="130" width="168" height="112" rx="12" class="node" />
-              <text x="58" y="164" class="label-strong">Browser / Reviewer</text>
-              <text x="58" y="192">Dashboard HTTPS 443</text>
-              <text x="58" y="216">Graylog HTTP 9000</text>
+              <rect x="36" y="205" width="178" height="112" rx="12" class="node" />
+              <text x="58" y="238" class="label-strong">Browser / Reviewer</text>
+              <text x="58" y="266">Dashboard HTTPS 443</text>
+              <text x="58" y="290">Graylog HTTP 9000</text>
 
-              <rect x="278" y="44" width="242" height="112" rx="14" class="node-alt" />
-              <text x="302" y="76" class="label-strong">wazuh-dashboard</text>
-              <text x="302" y="102">Ubuntu 24.04.4 LTS</text>
-              <text x="302" y="128">192.168.71.103</text>
-              <text x="302" y="150">2 vCPU / 2 GB / 40 GB</text>
+              <rect x="284" y="54" width="232" height="116" rx="14" class="node-alt" />
+              <text x="308" y="86" class="label-strong">wazuh-dashboard</text>
+              <text x="308" y="112">Ubuntu 24.04.4 LTS</text>
+              <text x="308" y="138">192.168.71.103</text>
+              <text x="308" y="160">manager API client</text>
 
-              <rect x="278" y="224" width="242" height="112" rx="14" class="node-alt" />
-              <text x="302" y="256" class="label-strong">graylog-server</text>
-              <text x="302" y="282">Graylog 7.0.5 / MongoDB 8.0</text>
-              <text x="302" y="308">192.168.71.101:9000</text>
-              <text x="302" y="330">4 vCPU / 6 GB / 80 GB</text>
+              <rect x="284" y="236" width="232" height="128" rx="14" class="node-alt" />
+              <text x="308" y="268" class="label-strong">wazuh-manager</text>
+              <text x="308" y="294">Ubuntu 24.04 LTS</text>
+              <text x="308" y="320">192.168.71.102</text>
+              <text x="308" y="344">1515 registration / 1514 events</text>
 
-              <rect x="628" y="44" width="242" height="112" rx="14" class="node-alt" />
-              <text x="652" y="76" class="label-strong">wazuh-indexer</text>
-              <text x="652" y="102">OpenSearch backend</text>
-              <text x="652" y="128">192.168.71.100:9200</text>
-              <text x="652" y="150">4 vCPU / 8 GB / 100 GB</text>
+              <rect x="588" y="236" width="232" height="128" rx="14" class="node-alt" />
+              <text x="612" y="268" class="label-strong">graylog-server</text>
+              <text x="612" y="294">Graylog 7.0.5 / MongoDB 8.0</text>
+              <text x="612" y="320">192.168.71.101:9000</text>
+              <text x="612" y="344">Raw TCP input 5555</text>
 
-              <rect x="628" y="234" width="242" height="92" rx="14" class="future" />
-              <text x="652" y="266" class="label-strong">Future Wazuh Manager</text>
-              <text x="652" y="292">agents + alerts.json</text>
-              <text x="652" y="314">forwarding to Graylog</text>
+              <rect x="834" y="54" width="200" height="116" rx="14" class="node-alt" />
+              <text x="856" y="86" class="label-strong">wazuh-indexer</text>
+              <text x="856" y="112">OpenSearch backend</text>
+              <text x="856" y="138">192.168.71.100:9200</text>
+              <text x="856" y="160">TLS-secured indexer</text>
 
-              <path d="M204 164 H278" class="arrow" />
-              <path d="M204 216 H278" class="arrow" />
-              <path d="M520 100 H628" class="arrow" />
-              <path d="M520 280 C570 280 578 156 628 130" class="arrow" />
-              <path d="M628 280 H520" class="arrow" />
+              <rect x="36" y="414" width="232" height="104" rx="14" class="node-alt" />
+              <text x="60" y="446" class="label-strong">debian12-1</text>
+              <text x="60" y="472">192.168.71.201</text>
+              <text x="60" y="496">Wazuh agent + Packetbeat</text>
+
+              <rect x="334" y="414" width="232" height="104" rx="14" class="node-alt" />
+              <text x="358" y="446" class="label-strong">windows-server-2025-1</text>
+              <text x="358" y="472">192.168.71.202</text>
+              <text x="358" y="496">Wazuh agent + Sysmon</text>
+
+              <rect x="834" y="414" width="200" height="104" rx="14" class="future" />
+              <text x="856" y="446" class="label-strong">Future processing</text>
+              <text x="856" y="472">Graylog parsing/routing</text>
+              <text x="856" y="496">Grafana + alerting</text>
+
+              <path d="M214 238 C248 210 246 122 284 112" class="arrow" />
+              <path d="M214 292 H588" class="arrow" />
+              <path d="M400 170 V236" class="arrow" />
+              <path d="M516 300 H588" class="arrow" />
+              <path d="M820 300 C860 270 860 190 900 170" class="arrow" />
+              <path d="M268 466 C300 450 300 352 334 334" class="arrow" />
+              <path d="M450 414 V364" class="arrow" />
+              <path d="M704 364 C704 420 790 454 834 466" class="arrow" />
+              <text x="526" y="284">Fluent Bit / alerts.json to TCP 5555</text>
+              <text x="98" y="392">agent enrollment 1515, event flow 1514</text>
             </svg>
           </div>
-          <p class="caption">Current network: VMware NAT on <code>192.168.71.0/24</code>. Publicly documented access points include the Wazuh Dashboard at <code>https://192.168.71.103</code>, Graylog at <code>http://192.168.71.101:9000</code>, and Indexer backend access on <code>9200</code>.</p>
+          <p class="caption">Current network: VMware NAT on <code>192.168.71.0/24</code>. Publicly documented access points include the Wazuh Dashboard at <code>https://192.168.71.103</code>, Graylog at <code>http://192.168.71.101:9000</code>, the Wazuh Manager at <code>192.168.71.102</code>, and Indexer backend access on <code>9200</code>.</p>
         </article>
 
         <article class="figure-card">
@@ -202,11 +231,22 @@ opensearch.hosts: ["https://wazuh-indexer:9200"]
 
 # Graylog Server
 http_bind_address = 0.0.0.0:9000
-elasticsearch_hosts = https://graylog:PASSWORD@192.168.71.100:9200
+elasticsearch_hosts = https://graylog:REDACTED@192.168.71.100:9200
 GRAYLOG_SERVER_JAVA_OPTS includes:
--Djavax.net.ssl.trustStore=/etc/graylog/server/certs/cacerts</code></pre>
+-Djavax.net.ssl.trustStore=/etc/graylog/server/certs/cacerts
+
+# Wazuh Manager
+manager host: 192.168.71.102
+agent registration: TCP 1515
+agent event traffic: TCP 1514
+Fluent Bit output: 192.168.71.101:5555
+Wazuh alert source: /var/ossec/logs/alerts/alerts.json
+
+# Endpoint telemetry
+debian12-1: 192.168.71.201, Wazuh agent, Packetbeat JSON
+windows-server-2025-1: 192.168.71.202, Wazuh agent, Sysmon eventchannel</code></pre>
           </div>
-          <p class="table-note">Part 3 records a TLS hostname/SAN mismatch fix by connecting Graylog to <code>192.168.71.100</code> instead of <code>wazuh-indexer</code>, plus the backend compatibility override correction.</p>
+          <p class="table-note">Earlier Graylog setup records a TLS hostname/SAN mismatch fix by connecting Graylog to <code>192.168.71.100</code> instead of <code>wazuh-indexer</code>, plus the backend compatibility override correction.</p>
         </article>
       </section>
 
@@ -231,15 +271,23 @@ GRAYLOG_SERVER_JAVA_OPTS includes:
               </tr>
               <tr>
                 <td><strong>MongoDB</strong></td>
-                <td>Part 3 records MongoDB 8.0 installation, service enablement, restart, and active-state verification.</td>
+                <td>MongoDB 8.0 installation, service enablement, restart, and active-state verification are recorded.</td>
               </tr>
               <tr>
                 <td><strong>Graylog</strong></td>
-                <td>The Graylog web UI was reached and loaded after login at <code>http://192.168.71.101:9000</code>.</td>
+                <td>The Graylog web UI was reached after login at <code>http://192.168.71.101:9000</code>, and TCP input <code>5555</code> was verified listening.</td>
               </tr>
               <tr>
-                <td><strong>Troubleshooting</strong></td>
-                <td>Graylog backend connectivity was corrected by fixing the TLS SAN target and OpenSearch compatibility response.</td>
+                <td><strong>Manager</strong></td>
+                <td>Wazuh Manager was installed, hardened with registration password support, connected to the Dashboard, and forwarding raw messages to Graylog through Fluent Bit.</td>
+              </tr>
+              <tr>
+                <td><strong>Agents</strong></td>
+                <td>Debian 12 and Windows Server 2025 agents were deployed, with registration on <code>1515</code> and event traffic on <code>1514</code>.</td>
+              </tr>
+              <tr>
+                <td><strong>Telemetry</strong></td>
+                <td>Sysmon events were collected from Windows, Packetbeat JSON flow records were generated on Debian, and endpoint events were confirmed from Wazuh Manager logs.</td>
               </tr>
             </tbody>
           </table>
@@ -250,9 +298,9 @@ GRAYLOG_SERVER_JAVA_OPTS includes:
           <ul class="bullet-list">
             <li>The single-node Wazuh Indexer has no high availability or replica resilience.</li>
             <li>The Graylog Server and MongoDB deployment is single-node and suitable for lab learning, not production availability.</li>
-            <li>The Wazuh Manager and agents are not deployed, so there is no live endpoint event collection yet.</li>
-            <li>Graylog inputs, streams, pipelines, forwarding behavior, and retention policy still need to be configured.</li>
-            <li>The Wazuh Dashboard no-server warning remains expected until the manager/API path is implemented.</li>
+            <li>The Graylog Raw/Plaintext TCP input is acceptable for lab traffic, but production forwarding should use TLS.</li>
+            <li>Raw Wazuh, Sysmon, and Packetbeat messages still need parsing into searchable Graylog fields.</li>
+            <li>Streams, pipelines, routing behavior, retention policy, Grafana, and alerting still need to be configured.</li>
           </ul>
         </article>
       </section>

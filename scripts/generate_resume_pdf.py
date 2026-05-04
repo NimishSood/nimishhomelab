@@ -41,7 +41,7 @@ CONTENT = ResumeContent(
     summary=(
         "IT Support Specialist with hands-on experience across identity, endpoint, virtualization, "
         "and internal security operations. Complements professional infrastructure work with public "
-        "security projects in Wazuh deployment and malicious URL classification, plus TryHackMe "
+        "security projects in Wazuh and Graylog SIEM deployment and malicious URL classification, plus TryHackMe "
         "Pre Security completion and current SEC1 preparation."
     ),
     role_heading="AKA Energy Systems | IT Support Specialist",
@@ -64,9 +64,9 @@ CONTENT = ResumeContent(
     ),
     project_entries=(
         (
-            "Wazuh Stack Bring-Up",
-            "Deployed Wazuh indexer and dashboard on separate Ubuntu 24.04 VMs in VMware Workstation with TLS, "
-            "JVM sizing, configuration notes, and documented verification steps.",
+            "SIEM HomeLab: Wazuh + Graylog",
+            "Documented Parts 1-5 of a VMware SIEM lab with Wazuh Indexer, Dashboard, Graylog Server, "
+            "Wazuh Manager, Fluent Bit forwarding, Debian and Windows agents, Sysmon, and Packetbeat.",
         ),
         (
             "Malicious URL Classification",
@@ -75,7 +75,7 @@ CONTENT = ResumeContent(
         ),
     ),
     skill_lines=(
-        "Security / Identity: Microsoft Entra ID, Conditional Access, GoPhish, Wazuh, Pi-hole",
+        "Security / Identity: Microsoft Entra ID, Conditional Access, GoPhish, Wazuh, Graylog, Sysmon, Packetbeat",
         "Infrastructure: Proxmox VE, VMware Workstation, Windows, Ubuntu, VLAN-aware networking",
         "Endpoint / Development: ManageEngine Desktop Central, Python, TypeScript, Git, Next.js, Firebase",
     ),

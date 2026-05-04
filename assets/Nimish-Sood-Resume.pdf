@@ -16,7 +16,7 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 6 0 obj
-<< /Length 5577 >>
+<< /Length 5704 >>
 stream
 BT
 /F2 24.00 Tf
@@ -74,13 +74,13 @@ BT
 /F1 10.50 Tf
 0.080 0.080 0.080 rg
 1 0 0 1 54.00 617.65 Tm
-(security projects in Wazuh deployment and malicious URL classification, plus TryHackMe Pre) Tj
+(security projects in Wazuh and Graylog SIEM deployment and malicious URL classification, plus) Tj
 ET
 BT
 /F1 10.50 Tf
 0.080 0.080 0.080 rg
 1 0 0 1 54.00 603.48 Tm
-(Security completion and current SEC1 preparation.) Tj
+(TryHackMe Pre Security completion and current SEC1 preparation.) Tj
 ET
 BT
 /F2 10.50 Tf
@@ -210,7 +210,7 @@ BT
 /F2 11.10 Tf
 0.080 0.080 0.080 rg
 1 0 0 1 54.00 350.66 Tm
-(Wazuh Stack Bring-Up) Tj
+(SIEM HomeLab: Wazuh + Graylog) Tj
 ET
 BT
 /F1 10.15 Tf
@@ -222,13 +222,13 @@ BT
 /F1 10.15 Tf
 0.080 0.080 0.080 rg
 1 0 0 1 65.00 336.66 Tm
-(Deployed Wazuh indexer and dashboard on separate Ubuntu 24.04 VMs in VMware Workstation with) Tj
+(Documented Parts 1-5 of a VMware SIEM lab with Wazuh Indexer, Dashboard, Graylog Server, Wazuh) Tj
 ET
 BT
 /F1 10.15 Tf
 0.080 0.080 0.080 rg
 1 0 0 1 65.00 323.26 Tm
-(TLS, JVM sizing, configuration notes, and documented verification steps.) Tj
+(Manager, Fluent Bit forwarding, Debian and Windows agents, Sysmon, and Packetbeat.) Tj
 ET
 BT
 /F2 11.10 Tf
@@ -292,18 +292,24 @@ BT
 /F1 10.10 Tf
 0.080 0.080 0.080 rg
 1 0 0 1 54.00 177.07 Tm
-(Security / Identity: Microsoft Entra ID, Conditional Access, GoPhish, Wazuh, Pi-hole) Tj
+(Security / Identity: Microsoft Entra ID, Conditional Access, GoPhish, Wazuh, Graylog, Sysmon,) Tj
 ET
 BT
 /F1 10.10 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 54.00 160.43 Tm
+1 0 0 1 54.00 163.43 Tm
+(Packetbeat) Tj
+ET
+BT
+/F1 10.10 Tf
+0.080 0.080 0.080 rg
+1 0 0 1 54.00 146.80 Tm
 (Infrastructure: Proxmox VE, VMware Workstation, Windows, Ubuntu, VLAN-aware networking) Tj
 ET
 BT
 /F1 10.10 Tf
 0.080 0.080 0.080 rg
-1 0 0 1 54.00 143.80 Tm
+1 0 0 1 54.00 130.16 Tm
 (Endpoint / Development: ManageEngine Desktop Central, Python, TypeScript, Git, Next.js, Firebase) Tj
 ET
 endstream
@@ -320,5 +326,5 @@ xref
 trailer
 << /Size 7 /Root 1 0 R >>
 startxref
-6031
+6158
 %%EOF
